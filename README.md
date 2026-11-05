@@ -1,40 +1,54 @@
 # AatmikJoy — Exploring the Joy of Being
 
-This is the GitHub repository for the AatmikJoy website and its reflections.
+AatmikJoy's website source and reflections, intended for GitHub Pages at `aatmikjoy.me`.
 
-## Current status
+## Repository status
+- The reflection [What Is Health and Healing?](reflections/what-is-health-and-healing/index.html) is committed.
+- `.nojekyll` is committed for static hosting.
+- **The main website has been refactored but has not been pushed to GitHub yet.** There is no root `index.html` in this repository until the modular bundle is added.
 
-- ✅ Initial repository created on `main`.
-- ✅ [What Is Health and Healing?](reflections/what-is-health-and-healing/index.html) reflection committed as a standalone HTML page.
-- ✅ `.nojekyll` is committed for static hosting.
-- ⏳ **The main website files have not yet been uploaded.** The repository does not yet have a root `index.html`, logo, or shared watercolor image. Until they are added, the website is not ready to publish.
+## Refactored website (Version 9)
+The standalone 1.36 MB HTML page was split into small, editable files. Use the prepared **AatmikJoy_modular_site_files.zip** package and extract it; upload its **contents**, preserving the directory structure:
 
-## One-time upload of the approved website
+```
+index.html
+assets/
+  styles.css
+  app.js
+  reflections.js
+  images/
+    logo.webp
+    watercolor.webp
+    artwork-1.webp ... artwork-5.webp
+  reflections/
+    reflection-health.webp
+    reflection-ayurveda.webp
+    reflection-yoga.webp
+    reflection-professionals.webp
+    reflection-equanimity.webp
+    reflection-women.webp
+```
 
-The approved Version 9 watercolor website and the new Health & Healing article were packaged together. To finish the initial migration without changing the design, **extract `AatmikJoy_upload_to_GitHub.zip`** and upload these three files to the repository root via GitHub's **Add file → Upload files**:
+The independently committed article lives at `reflections/what-is-health-and-healing/index.html` and has been adjusted to reference `assets/images/logo.webp` and `assets/images/watercolor.webp`. **Do not overwrite or delete the article folder.**
 
-1. `index.html` — the existing complete website with Home, Paths, Reflections, Connect, Products, and the membership demonstration. Its Reflections page links to the locally committed Health & Healing article.
-2. `logo.png` — existing horizontal AatmikJoy logo.
-3. `assets-watercolor.webp` — the shared watercolor background image.
+The modular package contains no files over 100 KB. The images have been optimized as WebP. Existing Home, Paths, Reflections, Connect, Products and Join pages share the stylesheet and JavaScript. The current navigation is hash-based; reflections can have their own actual directories and URLs.
 
-GitHub doesn't publish the contents of a ZIP automatically: extract the ZIP and upload the **files** (not the ZIP). Do not overwrite `reflections/what-is-health-and-healing/index.html` or this README.
+### Upload with GitHub Desktop
+1. Clone `qiprana/AatmikJoy`.
+2. Extract `AatmikJoy_modular_site_files.zip` and copy `index.html` and the `assets/` folder into the root of the cloned repository.
+3. Verify that `reflections/what-is-health-and-healing/index.html` is still present.
+4. Commit as **Modularize AatmikJoy website and optimize assets**, then push to `main`.
+5. Test Home and Reflections locally or through the Pages URL.
 
 ## Publish with GitHub Pages
+Configure **Settings → Pages → Deploy from a branch → main → / (root)**. Once the site is deployed and tested, configure the custom domain `aatmikjoy.me` and the DNS settings with your registrar. Enable HTTPS when GitHub makes it available.
 
-1. Once the three files are committed to `main`, navigate to **Settings → Pages**.
-2. Under **Build and deployment**, choose **Deploy from a branch**, select `main`, and folder `/ (root)`.
-3. Test the resulting GitHub Pages address, typically `https://qiprana.github.io/AatmikJoy/`, including `#/reflections` and the standalone article under `reflections/what-is-health-and-healing/`.
-4. In **Settings → Pages**, enter custom domain `aatmikjoy.me`; only then configure its DNS with your registrar. GitHub will create/manage the `CNAME` entry when you save the custom domain.
-5. Once available, enable **Enforce HTTPS**.
+## Future updates
+- Styles: `assets/styles.css`
+- Interactive navigation/reflection listing: `assets/app.js`
+- Article pages: `reflections/<slug>/index.html`
+- Artwork: `assets/images/` and `assets/reflections/`
 
-## Adding reflections
+Future reflections can be added as separate HTML pages. A Markdown-based system such as Astro can be introduced later without changing the visual language.
 
-- Create `reflections/<slug>/index.html` using the existing article as a page template.
-- Add a matching article entry to the `articles` array in root `index.html` so it appears in the Reflections listing.
-- Create changes on a feature branch and review before merging to `main`.
-
-A future Astro migration could simplify this into Markdown files and shared layouts, but it has **not** been performed in this version.
-
-## Security and limitations
-
-GitHub Pages serves static files. Request to Join, member preview, and contact placeholders are **not live backends** or private data collection systems. Do not collect private client data or health records through this static prototype.
+**Privacy:** GitHub Pages provides static hosting. Request to Join and the member preview are demonstration flows, not production authentication or health-data collection.
