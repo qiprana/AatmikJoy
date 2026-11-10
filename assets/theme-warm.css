@@ -1,0 +1,76 @@
+/* AatmikJoy — richer earth-and-botanical palette.
+   Inspired by InnerDivine's layered warm paper and tinted panels,
+   while retaining AatmikJoy's original green, coral and watercolor artwork.
+   This separate stylesheet can be adjusted or removed without disturbing layouts. */
+:root {
+  --paper:#f1e6d8;
+  --paper-light:#fff9f0;
+  --sage:#dce7d7;
+  --rose:#ecd9d0;
+  --line:#d9c9b8;
+  --shadow:0 13px 34px rgba(72,67,48,.095);
+}
+html {background:#f1e6d8}
+body {
+  background:
+    radial-gradient(ellipse at 9% 8%,rgba(203,157,147,.19),transparent 36%),
+    radial-gradient(ellipse at 91% 70%,rgba(118,148,115,.13),transparent 37%),
+    linear-gradient(180deg,#f4e9dc,#eae0d2);
+}
+.page {background:linear-gradient(170deg,#f1e7d9 0%,#ebe2d6 100%)}
+.site-header {background:rgba(248,238,225,.96);border-bottom-color:#d7c6b5}
+/* Keep the watercolor sunrise visible, adding warmth rather than a bright white veil. */
+#page-home .home-v8-hero {background:#eee0cd}
+#page-home .home-v8-hero .hero-scene {filter:saturate(.86) brightness(.99)}
+#page-home .home-v8-hero .hero-scene:after {
+  background:linear-gradient(180deg,rgba(247,235,221,.47) 0%,rgba(247,235,221,.60) 43%,rgba(247,235,221,.14) 79%,transparent 100%);
+}
+/* Warm-paper introduction, followed by clearly separate sage and blush panels. */
+#page-home .home-v8-intent {background:linear-gradient(120deg,#eadbc9 0%,#f3e5d5 56%,#e5e6d8 100%);border-top-color:#d8c7b5}
+#page-home .home-v8-statement {background:#fff8ed;border-color:#dccab7;box-shadow:0 12px 30px rgba(77,65,48,.07)}
+#page-home .home-v9-philosophy,
+#page-home .home-v9-invitation {background:#e8e7db}
+#page-home .home-v9-panel {border-color:#cfcbb9;box-shadow:0 16px 38px rgba(66,76,56,.10)}
+#page-home .home-v9-panel-sage {background:linear-gradient(115deg,#d4e2d0,#e4ebd9 67%,#edf0df)}
+#page-home .home-v9-panel-cream {background:linear-gradient(115deg,#e9d1c7,#f2dfcd 67%,#f9ecda)}
+#page-home .home-v9-panel p:not(.eyebrow) {color:#4d6151}
+#page-home .home-v8-themes {background:linear-gradient(120deg,#d9e4d3,#e7e9db 48%,#dce5d4);border-color:#cbd7c4}
+#page-home .home-v8-theme {background:rgba(255,250,240,.89);border-color:#cad7c4;box-shadow:0 9px 26px rgba(58,76,50,.055)}
+#page-home .home-v8-theme-icon {background:#d4e2c9}
+#page-home .home-v8-pause {background:linear-gradient(125deg,#ebd4c6 0%,#f2e1d2 62%,#dfe7d7)}
+/* Shared illustrated page headers: reduce the opaque ivory overlay. */
+.page:not([data-page="home"]) > .subhero {background:#eadccc;border-bottom-color:#d9c7b3}
+.page:not([data-page="home"]) > .subhero .subhero-scene {
+  background-image:linear-gradient(90deg,rgba(244,229,210,.95) 0%,rgba(244,229,210,.83) 34%,rgba(244,229,210,.42) 68%,rgba(244,229,210,.17) 100%),var(--aj-shared-watercolor);
+  filter:saturate(.9) brightness(.98);
+}
+/* More distinct backgrounds for each area, with readable light cards. */
+#page-paths .pathways-strip {background:linear-gradient(145deg,#edddcc,#e4e8d8)}
+#page-paths .paths-section,
+#page-paths .paths-content {background:transparent}
+#page-reflections .reflections-section {background:linear-gradient(145deg,#ebddd2,#e9dfd5 52%,#e3e6d9)}
+#page-reflections .reflection-card {background:#fff8ee;border-color:#d6cbbd;box-shadow:0 10px 28px rgba(77,66,55,.075)}
+#page-reflections .reflection-display-controls {background:#e2dacd;border-color:#d3c6b5}
+#page-reflections .reflection-display-button.is-active {background:#fff8ed}
+#page-connect .connect-personal-section {background:linear-gradient(140deg,#e5e8d8,#f0e0cf)}
+#page-products .products-section {background:linear-gradient(140deg,#eee1d1,#e4e7d8)}
+#page-join .join-content {background:linear-gradient(160deg,#e9ddce,#e6e8db)}
+#page-join .join-invitation {background:linear-gradient(100deg,#e9d4c7,#ecdfcd 55%,#dce7d6);border-bottom-color:#d4c8b7}
+#page-join .journey-card {background:#fff8ee;border-color:#d9c8b5}
+#page-member .member-section {background:linear-gradient(150deg,rgba(229,232,216,.95),rgba(239,220,206,.94)),var(--aj-shared-watercolor) center/cover}
+.site-footer {background:linear-gradient(180deg,#e8e7d9,#e8dacb);border-top-color:#d1c4b2}
+/* Standalone article shares the same palette; original article typography remains. */
+body.reflection-article {background:linear-gradient(150deg,#f1e5d7,#e9e2d6)}
+body.reflection-article .hero {
+  background:linear-gradient(180deg,rgba(244,229,214,.81),rgba(242,226,209,.67)),url('../assets/images/watercolor.webp') center 61%/cover no-repeat;
+  border-bottom-color:#d9c7b3;
+}
+body.reflection-article .definition {background:#e4e8d9;border-color:#cbd5c2}
+body.reflection-article .toc {background:#f3e4d8;border-color:#dcc9b8}
+body.reflection-article .closing {background:#dbe6d6}
+body.reflection-article footer {background:#e8dacb;border-top-color:#d1c4b2}
+@media(max-width:600px) {
+  #page-home .home-v8-hero .hero-scene:after {
+    background:linear-gradient(180deg,rgba(247,236,222,.9) 0%,rgba(247,236,222,.82) 48%,rgba(247,236,222,.08) 94%);
+  }
+}
