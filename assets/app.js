@@ -99,7 +99,7 @@
 
   // In-memory demo state only. Nothing is written to storage, cookies or a URL.
   const demo = {stage:'request',name:'Alex',approved:false,requested:false,memberOpen:false,intakePart:0,complete:false};
-  const pageTitles = {home:'Exploring the Joy of Being',paths:'Paths to Aatmik Joy',connect:'Connect',reflections:'My Reflections',products:'Products',vedini:'Vedini',bitbybit:'BitbyBit',swaadhaya:'Swaadhaya',join:'Join',member:'Member Preview'};
+  const pageTitles = {home:'Exploring the Joy of Being',today:'Today · My Sanctuary',paths:'Paths to Aatmik Joy',connect:'Connect',reflections:'My Reflections',products:'Products',vedini:'Vedini',bitbybit:'BitbyBit',swaadhaya:'Swaadhaya',join:'Join',member:'Member Preview'};
   let lastRoute = '';
   const focusHeading = container => {
    const heading = Array.from(container.querySelectorAll('h1,h2')).find(h => h.getClientRects().length);
@@ -194,6 +194,7 @@
 
   // Native <dialog> search: actual searchable links, no decorative dummy input.
   const searchPages = [
+   {title:'Today · My Sanctuary',label:'Daily thought, journal, centering and personal self-care planner',url:'#/today',keywords:'today daily practice breathing biking water self care habits journal affirmation sanctuary'},
    {title:'What is Health and Healing?',label:'Reflection - full article on AatmikJoy',url:'reflections/what-is-health-and-healing/',keywords:'health healing balance function integrity self-regulation modalities body mind spirit holistic'},
    {title:'Paths to Aatmik Joy',label:'Page - practices and perspectives',url:'#/paths',keywords:'paths ayurveda yoga breath rhythm compassion eft self study presence'},
    {title:'Connect',label:'Page - how to connect with me',url:'#/connect',keywords:'contact email connect me sridevi conversation inquiry'},
