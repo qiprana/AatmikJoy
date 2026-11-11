@@ -94,3 +94,54 @@
  #page-home .home-v8-theme{padding:52px 26px 31px}
 }
 @media(prefers-reduced-motion:reduce){#page-home .home-v8-theme,#page-home .home-hero-cta{transition:none}}
+
+
+/* Approved two-color homepage rhythm: sage and nearly-white warm ivory.
+   Scoped to Home so Today, Paths and the other sections remain unchanged. */
+#page-home {
+ --aj-home-sage:#E2ECDD;
+ --aj-home-ivory:#FFFCF6;
+ --aj-home-ink:#34543D;
+ --aj-home-secondary:#526A56;
+ background:var(--aj-home-ivory);
+}
+#page-home .home-v8-hero { background:var(--aj-home-ivory); }
+#page-home .home-v8-hero .hero-scene:after {
+ background:linear-gradient(180deg,rgba(255,252,246,.73) 0%,rgba(255,252,246,.61) 42%,rgba(255,252,246,.29) 78%,rgba(255,252,246,.09) 100%);
+}
+#page-home .home-v8-hero .home-hero-kicker {display:none}
+#page-home .home-v8-intent,
+#page-home .home-v9-invitation {background:var(--aj-home-sage);}
+#page-home .home-v9-philosophy,
+#page-home .home-v8-themes {background:var(--aj-home-ivory);}
+#page-home .home-v8-statement,
+#page-home .home-v8-theme,
+#page-home .home-v8-theme:nth-child(2),
+#page-home .home-v8-theme:nth-child(3) {
+ background:var(--aj-home-ivory);
+ border-color:#CCD9C9;
+}
+#page-home .home-v8-theme::before,
+#page-home .home-v8-theme:nth-child(2)::before,
+#page-home .home-v8-theme:nth-child(3)::before {background:#779977;}
+#page-home .home-v8-theme-number,
+#page-home .aj-home-chapter .eyebrow,
+#page-home .home-v8-statement-kicker {color:#496F50;}
+#page-home .home-v8-intent-heading h2,
+#page-home .home-v8-intent-heading h2 em,
+#page-home .home-v9-panel h2,
+#page-home .home-v9-panel h2 em,
+#page-home .home-v8-themes-heading h2,
+#page-home .home-v8-theme h3 {color:var(--aj-home-ink);}
+#page-home .home-v8-purpose-quote,
+#page-home .home-v8-intent-heading>p:last-child,
+#page-home .home-v9-panel p:not(.eyebrow),
+#page-home .home-v9-panel p.home-chapter-note,
+#page-home .home-v9-panel p.home-v9-quiet-line,
+#page-home .home-v8-themes-heading>p:last-child,
+#page-home .home-v8-theme p {color:var(--aj-home-secondary);}
+#page-home .home-v9-panel p.home-chapter-note {border-left-color:#7A9C78;}
+#page-home .home-v8-theme {box-shadow:0 10px 28px rgba(37,68,47,.055);}
+#page-home .home-v8-theme:hover {box-shadow:0 14px 32px rgba(37,68,47,.09);}
+#page-home .home-hero-cta {background:#416849;}
+#page-home .home-explore-link a {color:#34543D;border-bottom-color:#8BA58A;}
