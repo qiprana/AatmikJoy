@@ -196,3 +196,24 @@
  .site-header .brand-exact>img {width:min(190px,51vw);}
  #page-home .home-v8-hero::after {height:110px;}
 }
+
+
+/* Preview: restrained headline after removing the hero CTA. */
+#page-home .home-v8-hero .new-home-headline {
+ font-size:clamp(49px,5.55vw,84px);
+ line-height:1.16;
+ max-width:1200px;
+ margin-bottom:22px;
+}
+#page-home .home-v8-hero .hero-description {margin-bottom:0;}
+#page-home .home-v8-hero .hero-copy {padding-bottom:80px;}
+@media(max-width:1180px) {
+ #page-home .home-v8-hero .new-home-headline {font-size:clamp(47px,5.75vw,72px);}
+}
+@media(max-width:930px) {
+ #page-home .home-v8-hero .new-home-headline {font-size:clamp(44px,7.5vw,63px);}
+}
+@media(max-width:650px) {
+ #page-home .home-v8-hero .new-home-headline {font-size:clamp(36px,9vw,49px);}
+ #page-home .home-v8-hero .hero-copy {padding-bottom:68px;}
+}
