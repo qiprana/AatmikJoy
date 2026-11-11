@@ -85,13 +85,33 @@
     </article>
   </div>
 
+  <aside class="today-learning" aria-label="A small insight from Ayurveda and Yoga">
+    <span class="today-learning-label" id="today-learning-label">AYURVEDA · DINACHARYA</span>
+    <p id="today-learning-text">Ayurveda invites us to notice the rhythm of waking, eating, moving and resting. Where could you make a little more space today?</p>
+  </aside>
+
   <section class="today-plan" aria-labelledby="sanctuary-title">
     <div class="today-section-heading">
       <div>
         <h2 id="sanctuary-title">My self-care today</h2>
-        <p>Your chosen moments of care, all in one place.</p>
+        <p>Your chosen moments of care, one small step at a time.</p>
       </div>
       <span class="care-progress" id="care-progress" aria-live="polite"></span>
+    </div>
+    <div class="today-pattern-guide">
+      <p><strong>Patterns change gently.</strong> Choose one small action and give it at least 21 days to explore. The aim is a steadier relationship with yourself, not a perfect streak.</p>
+      <details class="today-pattern-steps">
+        <summary>Why begin with 21 days? <span aria-hidden="true">⌄</span></summary>
+        <div class="today-pattern-body">
+          <p>Think of three weeks as an invitation to begin, not a deadline for change. A habit may take much longer to feel natural.</p>
+          <ol>
+            <li><strong>Days 1–7 · Notice</strong><span>Observe your current pattern without judgment. When does it appear? What supports it?</span></li>
+            <li><strong>Days 8–14 · Return</strong><span>Repeat one manageable practice at a familiar moment. If you miss a day, simply begin again.</span></li>
+            <li><strong>Days 15–21 · Reflect</strong><span>Notice what feels different. Keep, adapt or release the practice based on your experience.</span></li>
+          </ol>
+          <p class="today-pattern-footnote">In Yoga, <em>abhyasa</em> is steady practice and <em>svadhyaya</em> is self-study. Together, they invite consistency with curiosity rather than pressure.</p>
+        </div>
+      </details>
     </div>
     <div class="today-plan-surface">
       <ul class="care-list" id="care-list" aria-label="My daily self-care intentions"></ul>
@@ -107,7 +127,7 @@
             <button type="button" data-idea-tab="own" aria-pressed="false">Create my own</button>
           </div>
           <div class="today-idea-panel" id="today-panel-inner">
-            <p class="today-idea-caption">A little care throughout the day: notice your breath, body, thoughts or feelings.</p>
+            <p class="today-idea-caption"><strong>Yoga · Abhyasa &amp; Svadhyaya.</strong> Return to small practices with steadiness, and observe your thoughts and feelings without judgment. What helps you connect within?</p>
             <div class="today-ideas-grid">
               <div class="today-idea"><span><strong>Five mindful breaths</strong><small>Notice your natural breath · 2 minutes</small></span><button type="button" data-care-example="breaths">Add</button></div>
               <div class="today-idea"><span><strong>Check in with your feelings</strong><small>Name what you feel with kindness · 2 minutes</small></span><button type="button" data-care-example="feelings">Add</button></div>
@@ -118,7 +138,7 @@
             </div>
           </div>
           <div class="today-idea-panel" id="today-panel-nature" hidden>
-            <p class="today-idea-caption">Gentle Ayurvedic-inspired rhythms for waking, nourishment and rest. Adapt to your needs.</p>
+            <p class="today-idea-caption"><strong>Ayurveda · Dinacharya.</strong> A gentle daily rhythm gives attention to waking, meals, movement and rest. Find times that work with your needs, not against them.</p>
             <div class="today-ideas-grid">
               <div class="today-idea"><span><strong>Rise with the morning</strong><small>Around 6 am, if you have enough sleep</small></span><button type="button" data-care-example="wake">Add</button></div>
               <div class="today-idea"><span><strong>Enjoy regular meals</strong><small>Give food and digestion some attention</small></span><button type="button" data-care-example="meals">Add</button></div>
@@ -128,7 +148,7 @@
             </div>
           </div>
           <div class="today-idea-panel" id="today-panel-own" hidden>
-            <p class="today-idea-caption">What small act of care would you like to make your own?</p>
+            <p class="today-idea-caption">Begin with one intention you can return to. Even two mindful minutes after an existing routine can be a meaningful start.</p>
             <form id="care-form" class="care-builder">
               <label>My practice<input id="care-name" required maxlength="90" placeholder="e.g., A quiet evening walk"></label>
               <label>Track by<select id="care-kind"><option value="minutes">Minutes</option><option value="times">Times per day</option></select></label>
