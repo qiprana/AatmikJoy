@@ -27,7 +27,7 @@ function refreshExamples(){
  document.querySelectorAll('[data-care-example]').forEach(button=>{
   const id=button.dataset.careExample, exists=state.habits.some(h=>h.id==='example-'+id);
   button.disabled=exists;
-  button.textContent=exists?'Added to my plan ✓':'Add to my plan';
+  button.textContent=exists?'Added ✓':'Add';
   button.setAttribute('aria-label',exists?examples[id].name+' is in your plan':'Add '+examples[id].name+' to my plan');
  });
 }
@@ -58,6 +58,18 @@ function download(name,content,type='application/json'){const blob=new Blob([con
 function start(){
  if(!$('#page-today'))return;
  renderDaily();render();
+ const ideaTabs=Array.from(document.querySelectorAll('[data-idea-tab]'));
+ const showIdeaTab=(tab,focus=false)=>{
+  ideaTabs.forEach(button=>{
+   const selected=button.dataset.ideaTab===tab;
+   button.classList.toggle('is-active',selected);
+   button.setAttribute('aria-pressed',String(selected));
+  });
+  ['inner','nature','own'].forEach(name=>{$('#today-panel-'+name).hidden=name!==tab;});
+  if(focus && tab==='own')$('#care-name').focus();
+ };
+ ideaTabs.forEach(button=>button.addEventListener('click',()=>showIdeaTab(button.dataset.ideaTab,true)));
+
  $('#page-today').addEventListener('click',e=>{
   const button=e.target.closest('button[data-care-example]');
   if(!button)return;
@@ -65,6 +77,7 @@ function start(){
   if(!choice||state.habits.some(h=>h.id==='example-'+id))return;
   state.habits.push({id:'example-'+id,...choice});
   save();render();msg('Added “'+choice.name+'” to your plan. You can track it below.');
+  $('#today-add-drawer').open=false;
  });
 
  const j=$('#today-journal');
@@ -74,6 +87,7 @@ function start(){
  if(!name||!Number.isInteger(target)||target<1||target>200)return msg('Please enter a name and a target between 1 and 200.');
  state.habits.push({id:'h'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),name,kind,target,when});
  save();e.target.reset();render();msg('Added to your personal plan.');
+ $('#today-add-drawer').open=false;
  });
  $('#care-list').addEventListener('click',e=>{
  const b=e.target.closest('button');if(!b)return;const id=b.dataset.add||b.dataset.sub||b.dataset.remove;if(!id)return;
