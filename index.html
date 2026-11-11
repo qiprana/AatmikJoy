@@ -60,64 +60,110 @@
 </div><div class="home-explore-link"><a href="#/paths">Explore the paths <span aria-hidden="true">→</span></a></div></div>
 </section></section>
 <section class="page" data-page="today" hidden id="page-today">
-<div class="wrap today-wrap">
-  <div class="today-subhero"><p class="eyebrow">A SMALL MOMENT TO RETURN TO YOURSELF</p><h1 tabindex="-1">Today, <em>in your own rhythm.</em></h1><p>There is no single prescribed way. Choose what nourishes you today — a breath, a reflection, a small act of care.</p></div>
-  <div class="today-intro"><span class="today-small" id="today-date"></span><h2>Your daily pause</h2><p>A few gentle invitations for the day. Take what resonates, leave what does not.</p></div>
-  <div class="today-grid">
-    <article class="today-card"><span class="today-small">A thought for today</span><h3>A moment to consider</h3><p id="today-thought">Rest is part of living, not a reward for finishing.</p></article>
-    <article class="today-card"><span class="today-small">An affirmation</span><h3>Words to carry</h3><p id="today-affirmation">I have permission to pause.</p></article>
-    <article class="today-card"><span class="today-small">A journal invitation</span><h3>A question for yourself</h3><p id="today-prompt">Where might you allow yourself more ease?</p></article>
-  </div>
-  <section class="today-section" aria-labelledby="today-care-title">
-    <span class="today-small">CONNECT WITHIN</span><h2 class="today-section-title" id="today-care-title">A little care, throughout the day</h2>
-    <p class="today-section-description">Small moments to notice your body, breath, thoughts and feelings. These are ideas to explore, not tasks to tick off.</p>
-    <div class="today-examples" id="today-inner-examples">
-      <article class="today-example"><div><strong>Five mindful breaths</strong><small>Pause and notice your natural breathing · 2 min</small></div><button type="button" data-care-example="breaths">Add to my plan</button></article>
-      <article class="today-example"><div><strong>Check in with your feelings</strong><small>Name what is present without judging · 2 min</small></div><button type="button" data-care-example="feelings">Add to my plan</button></article>
-      <article class="today-example"><div><strong>Rest your eyes</strong><small>Look away from a screen and soften your gaze · 3 min</small></div><button type="button" data-care-example="eyes">Add to my plan</button></article>
-      <article class="today-example"><div><strong>Move with awareness</strong><small>Walk, stretch or shift your posture · 5 min</small></div><button type="button" data-care-example="movement">Add to my plan</button></article>
-      <article class="today-example"><div><strong>A moment of gratitude</strong><small>Notice one thing you appreciate · 2 min</small></div><button type="button" data-care-example="gratitude">Add to my plan</button></article>
-      <article class="today-example"><div><strong>Listen inward</strong><small>Write or reflect on one honest question · 5 min</small></div><button type="button" data-care-example="inquiry">Add to my plan</button></article>
+<div class="wrap today-page-wrap">
+  <header class="today-head">
+    <div>
+      <p class="today-kicker">A SMALL MOMENT TO RETURN TO YOURSELF</p>
+      <h1 tabindex="-1">Today, <em>in your own rhythm.</em></h1>
+      <p class="today-lead">A little inspiration for your day. Take what nourishes you; leave what does not.</p>
     </div>
-  </section>
-  <section class="today-section" aria-labelledby="today-nature-title">
-    <span class="today-small">LIVE IN RHYTHM</span><h2 class="today-section-title" id="today-nature-title">Alignment with Nature</h2>
-    <p class="today-section-description">Ayurvedic-inspired rhythms for waking, nourishment, movement and rest. Adapt them to your needs and circumstances.</p>
-    <div class="today-examples">
-      <article class="today-example"><div><strong>Rise with the morning</strong><small>Try waking around 6 am, if well rested · daily intention</small></div><button type="button" data-care-example="wake">Add to my plan</button></article>
-      <article class="today-example"><div><strong>Nourish at regular times</strong><small>Make space for an unhurried meal · daily intention</small></div><button type="button" data-care-example="meals">Add to my plan</button></article>
-      <article class="today-example"><div><strong>Stay comfortably hydrated</strong><small>Drink to suit your thirst, activity and climate · daily intention</small></div><button type="button" data-care-example="water">Add to my plan</button></article>
-      <article class="today-example"><div><strong>Connect with daylight</strong><small>Spend a little time outside, when possible · 10 min</small></div><button type="button" data-care-example="daylight">Add to my plan</button></article>
-      <article class="today-example"><div><strong>Wind down for rest</strong><small>Aim for sleep around 10 pm if it suits your schedule · daily intention</small></div><button type="button" data-care-example="sleep">Add to my plan</button></article>
-    </div>
-  </section>
-  <section class="today-section" aria-labelledby="sanctuary-title"><div class="today-section-header"><div><span class="today-small">MY SANCTUARY</span><h2 class="today-section-title" id="sanctuary-title">My self-care plan</h2><p>Build your own plan from the examples above, or create a practice that is uniquely yours.</p></div><span class="care-progress" id="care-progress" aria-live="polite"></span></div>
-    <div class="care-panel"><p class="care-intro">Use <strong>Add to my plan</strong> above, or enter your own intention below. Once added, you can check it off or record progress for today. Your choices stay in this browser.</p>
-      <form id="care-form" class="care-builder">
-        <label>Practice or intention<input id="care-name" required maxlength="90" placeholder="e.g., Five minutes of quiet"></label>
-        <label>Track by<select id="care-kind"><option value="minutes">Minutes</option><option value="times">Times per day</option></select></label>
-        <label>Daily goal<input id="care-target" type="number" min="1" max="200" value="5" required></label>
-        <label>When<select id="care-when"><option>Anytime</option><option>Morning</option><option>Midday</option><option>Evening</option><option>Throughout the day</option></select></label>
-        <button type="submit">Add my own practice</button>
-      </form>
-      <ul class="care-list" id="care-list" aria-label="My daily self-care intentions"></ul><p class="care-feedback" id="care-feedback" aria-live="polite"></p>
-      <div class="care-buttons"><button type="button" id="care-export">Export my plan</button><button type="button" class="care-secondary" id="care-reset">Reset today's check-ins</button></div>
-      <p class="care-muted">The checkboxes below are for practices you have chosen: select one to mark it completed today. Check-ins reset each day; your plan stays. Browser data can be cleared or exported.</p>
-    </div>
-  </section>
-  <section class="today-section" aria-labelledby="today-practices-title"><div class="today-section-header"><div><span class="today-small">PAUSE &amp; CENTER</span><h2 class="today-section-title" id="today-practices-title">Simple practices to explore</h2><p>Try one of these gentle starting points, or explore deeper practices in Inner Connection.</p></div><a class="today-more-link" href="#/paths/inner">More in Inner Connection <span aria-hidden="true">→</span></a></div>
-    <div class="today-practices">
-      <article><span class="today-small">2 minutes</span><h3>Notice your breath</h3><p>Follow a few natural breaths without changing them.</p><details><summary>How to begin</summary><p>Feel the air entering and leaving your body. If your attention wanders, gently return to the next breath.</p></details></article>
-      <article><span class="today-small">3 minutes</span><h3>Rest for the eyes</h3><p>Step back from your screen and soften your gaze.</p><details><summary>How to begin</summary><p>Look into the distance, blink naturally, and rest your eyes briefly without pressing on them.</p></details></article>
-      <article><span class="today-small">5 minutes</span><h3>Body awareness</h3><p>Notice your posture and where you hold tension.</p><details><summary>How to begin</summary><p>Feel your feet on the ground. Move your attention slowly from your shoulders to your hands and feet. Let your body be as it is.</p></details></article>
-      <article><span class="today-small">3 minutes</span><h3>Compassionate check-in</h3><p>Meet an emotion with curiosity instead of judgment.</p><details><summary>How to begin</summary><p>Ask yourself, “What am I feeling right now?” Name the feeling if you can, without needing to change it.</p></details></article>
-      <article><span class="today-small">5 minutes</span><h3>Move mindfully</h3><p>Walk, stretch or move in a way that feels comfortable.</p><details><summary>How to begin</summary><p>Notice the rhythm of your steps, your surroundings and your natural breathing. Slow down or rest as needed.</p></details></article>
-      <article><span class="today-small">5 minutes</span><h3>Quiet reflection</h3><p>Give an inner question a little room.</p><details><summary>How to begin</summary><p>Consider: “What do I need in this moment?” Let the answer emerge naturally, or simply sit with the question.</p></details></article>
-    </div>
-  </section>
-  <section class="today-section" aria-labelledby="today-journal-title"><span class="today-small">SELF-REFLECTION</span><h2 class="today-section-title" id="today-journal-title">A little space to write</h2><div class="care-panel"><label for="today-journal" class="care-intro">What would you like to listen to within yourself today?</label><textarea id="today-journal" class="care-note" placeholder="Write just for yourself..." rows="6"></textarea><p class="care-muted" id="journal-status">Your reflection stays in this browser, not on a server. Export it if you want to keep a separate copy.</p><div class="care-buttons"><button type="button" id="journal-export">Export today's reflection</button></div></div></section>
+    <span class="today-date" id="today-date"></span>
+  </header>
 
-</div></section>
+  <div class="today-pause-grid" aria-label="Your daily pause">
+    <article class="today-pause-card today-pause-thought">
+      <span class="today-pause-label">A THOUGHT FOR TODAY</span>
+      <p id="today-thought">Rest is part of living, not a reward for finishing.</p>
+    </article>
+    <article class="today-pause-card today-pause-affirmation">
+      <span class="today-pause-label">AN AFFIRMATION</span>
+      <p id="today-affirmation">I have permission to pause.</p>
+    </article>
+    <article class="today-pause-card today-pause-reflection">
+      <span class="today-pause-label">A JOURNAL INVITATION</span>
+      <p id="today-prompt">Where might you allow yourself more ease?</p>
+    </article>
+  </div>
+
+  <section class="today-plan" aria-labelledby="sanctuary-title">
+    <div class="today-section-heading">
+      <div>
+        <h2 id="sanctuary-title">My self-care today</h2>
+        <p>Your chosen moments of care, all in one place.</p>
+      </div>
+      <span class="care-progress" id="care-progress" aria-live="polite"></span>
+    </div>
+    <div class="today-plan-surface">
+      <ul class="care-list" id="care-list" aria-label="My daily self-care intentions"></ul>
+      <p class="care-feedback" id="care-feedback" role="status" aria-live="polite"></p>
+
+      <details class="today-add-drawer" id="today-add-drawer">
+        <summary id="today-add-toggle"><span aria-hidden="true" class="today-plus">+</span> Add a practice <span aria-hidden="true" class="today-summary-arrow">⌄</span></summary>
+        <div class="today-add-content">
+          <p class="today-suggestion-intro">Explore ideas to add to your own plan.</p>
+          <div class="today-idea-options" role="group" aria-label="Explore practice ideas">
+            <button type="button" class="is-active" data-idea-tab="inner" aria-pressed="true">Connect Within</button>
+            <button type="button" data-idea-tab="nature" aria-pressed="false">Alignment with Nature</button>
+            <button type="button" data-idea-tab="own" aria-pressed="false">Create my own</button>
+          </div>
+          <div class="today-idea-panel" id="today-panel-inner">
+            <p class="today-idea-caption">A little care throughout the day: notice your breath, body, thoughts or feelings.</p>
+            <div class="today-ideas-grid">
+              <div class="today-idea"><span><strong>Five mindful breaths</strong><small>Notice your natural breath · 2 minutes</small></span><button type="button" data-care-example="breaths">Add</button></div>
+              <div class="today-idea"><span><strong>Check in with your feelings</strong><small>Name what you feel with kindness · 2 minutes</small></span><button type="button" data-care-example="feelings">Add</button></div>
+              <div class="today-idea"><span><strong>Rest your eyes</strong><small>Look away from screens · 3 minutes</small></span><button type="button" data-care-example="eyes">Add</button></div>
+              <div class="today-idea"><span><strong>Move with awareness</strong><small>Walk, stretch, or change posture · 5 minutes</small></span><button type="button" data-care-example="movement">Add</button></div>
+              <div class="today-idea"><span><strong>A moment of gratitude</strong><small>Notice something you appreciate · 2 minutes</small></span><button type="button" data-care-example="gratitude">Add</button></div>
+              <div class="today-idea"><span><strong>Listen inward</strong><small>Be with a question · 5 minutes</small></span><button type="button" data-care-example="inquiry">Add</button></div>
+            </div>
+          </div>
+          <div class="today-idea-panel" id="today-panel-nature" hidden>
+            <p class="today-idea-caption">Gentle Ayurvedic-inspired rhythms for waking, nourishment and rest. Adapt to your needs.</p>
+            <div class="today-ideas-grid">
+              <div class="today-idea"><span><strong>Rise with the morning</strong><small>Around 6 am, if you have enough sleep</small></span><button type="button" data-care-example="wake">Add</button></div>
+              <div class="today-idea"><span><strong>Enjoy regular meals</strong><small>Give food and digestion some attention</small></span><button type="button" data-care-example="meals">Add</button></div>
+              <div class="today-idea"><span><strong>Stay comfortably hydrated</strong><small>Drink for your thirst and activity</small></span><button type="button" data-care-example="water">Add</button></div>
+              <div class="today-idea"><span><strong>Connect with daylight</strong><small>Step outside when possible · 10 minutes</small></span><button type="button" data-care-example="daylight">Add</button></div>
+              <div class="today-idea"><span><strong>Wind down for rest</strong><small>Around 10 pm if it suits your schedule</small></span><button type="button" data-care-example="sleep">Add</button></div>
+            </div>
+          </div>
+          <div class="today-idea-panel" id="today-panel-own" hidden>
+            <p class="today-idea-caption">What small act of care would you like to make your own?</p>
+            <form id="care-form" class="care-builder">
+              <label>My practice<input id="care-name" required maxlength="90" placeholder="e.g., A quiet evening walk"></label>
+              <label>Track by<select id="care-kind"><option value="minutes">Minutes</option><option value="times">Times per day</option></select></label>
+              <label>Daily goal<input id="care-target" type="number" min="1" max="200" value="5" required></label>
+              <label>When<select id="care-when"><option>Anytime</option><option>Morning</option><option>Midday</option><option>Evening</option><option>Throughout the day</option></select></label>
+              <button type="submit">Add to my plan</button>
+            </form>
+          </div>
+        </div>
+      </details>
+      <details class="today-plan-settings">
+        <summary>Plan options</summary>
+        <div class="care-buttons"><button type="button" id="care-export">Export my plan</button><button type="button" id="care-reset">Reset today's check-ins</button></div>
+        <p class="care-muted">Only your chosen practices are checked off. Your personal plan is saved in this browser; daily check-ins start fresh each day.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="today-center" aria-labelledby="today-center-title">
+    <details>
+      <summary><span class="today-center-icon" aria-hidden="true">✧</span><span class="today-center-copy"><strong id="today-center-title">Pause &amp; Center</strong><small>One simple practice for the moment</small></span><span class="today-center-chevron" aria-hidden="true">⌄</span></summary>
+      <div class="today-center-detail"><p><strong>Notice one natural breath.</strong> Feel it arrive and leave, without trying to change it. Return to the present moment as often as you like.</p><a href="#/paths/inner">Explore more in Inner Connection <span aria-hidden="true">→</span></a></div>
+    </details>
+  </section>
+
+  <section class="today-journal" aria-labelledby="today-journal-title">
+    <div class="today-section-heading">
+      <div><h2 id="today-journal-title">A little space for self-reflection</h2><p>What am I noticing within myself today?</p></div>
+    </div>
+    <label class="sr-only" for="today-journal">Your private reflection for today</label>
+    <textarea id="today-journal" class="care-note" rows="3" placeholder="Write just for yourself..."></textarea>
+    <div class="today-journal-footer"><p class="care-muted" id="journal-status">Your reflection stays in this browser, not on a server.</p><button type="button" id="journal-export">Export reflection</button></div>
+  </section>
+</div>
+</section>
 <section class="page" data-page="paths" hidden="" id="page-paths">
 <div class="subhero"><div aria-hidden="true" class="subhero-scene"></div><div class="wrap"><div class="subhero-copy"><p class="eyebrow">Many portals to the joy within</p><h1 tabindex="-1">Paths to Aatmik Joy</h1><div aria-hidden="true" class="ornament"><span></span><svg aria-hidden="true" class="icon" viewbox="0 0 48 48"><use href="#i-lotus"></use></svg><span></span></div><p>Different doorways to balance and inner connection—through daily rhythm, Ayurveda, Yoga, nourishment, emotional wellbeing, and inner connection.</p></div></div></div><section aria-labelledby="paths-overview-heading" class="pathways-strip paths-overview-strip"><div class="wrap home-paths-intro"><p class="eyebrow">MANY PORTALS · ONE INNER JOURNEY</p><h2 id="paths-overview-heading">Ways to <em>explore</em></h2><p>There is no one prescribed way. Explore the pathways that resonate with your nature, needs and curiosity.</p></div><div class="wrap pathways-grid"><a class="pathway-link" href="#/paths/rhythm"><span class="icon-wash tone-sun"><svg aria-hidden="true" class="icon" viewbox="0 0 48 48"><use href="#i-sun"></use></svg></span><strong>Daily Rhythm</strong><span>Live in rhythm with nature</span></a><a class="pathway-link" href="#/paths/ayurveda"><span class="icon-wash tone-sage"><svg aria-hidden="true" class="icon" viewbox="0 0 48 48"><use href="#i-leaf"></use></svg></span><strong>Ayurveda</strong><span>Wisdom for everyday living</span></a><a class="pathway-link" href="#/paths/yoga"><span class="icon-wash tone-peach"><svg aria-hidden="true" class="icon" viewbox="0 0 48 48"><use href="#i-yoga"></use></svg></span><strong>Yoga</strong><span>Movement, breath and awareness</span></a><a class="pathway-link" href="#/paths/food"><span class="icon-wash tone-sage"><svg aria-hidden="true" class="icon" viewbox="0 0 48 48"><use href="#i-food"></use></svg></span><strong>Food &amp; Nutrition</strong><span>Nourish with awareness</span></a><a class="pathway-link" href="#/paths/emotions"><span class="icon-wash tone-rose"><svg aria-hidden="true" class="icon" viewbox="0 0 48 48"><use href="#i-heart"></use></svg></span><strong>Emotional Wellbeing</strong><span>Make room for your inner world</span></a><a class="pathway-link" href="#/paths/inner"><span class="icon-wash tone-rose"><svg aria-hidden="true" class="icon" viewbox="0 0 48 48"><use href="#i-lotus"></use></svg></span><strong>Inner Connection</strong><span>Explore, reflect and grow</span></a></div></section>
 <section class="wrap connect-section"><div class="connect-intro"><p class="eyebrow">A closer look</p><h2>Different paths. <br/>A shared intention.</h2><p>Open a pathway to read more. Each is an invitation to observe, learn and discover what feels meaningful to you.</p></div><div class="path-detail-list"><details class="path-detail" id="path-ayurveda"><summary><span class="icon-wash tone-sage"><svg aria-hidden="true" class="icon" viewbox="0 0 48 48"><use href="#i-leaf"></use></svg></span><span><strong>Ayurveda</strong><span>Wisdom for everyday living</span></span><svg aria-hidden="true" class="icon detail-chevron" viewbox="0 0 48 48"><use href="#i-chevron"></use></svg></summary><div class="path-detail-body"><p>Explore your individual nature, changing needs, food, daily rhythm and relationship with the seasons.</p><p>A place to reflect on patterns rather than fit yourself into a fixed label. Together, these conversations can explore what feels nourishing, sustainable and appropriate for you.</p><blockquote>What patterns do you notice in your energy, appetite and everyday rhythms?</blockquote></div></details><details class="path-detail" id="path-yoga"><summary><span class="icon-wash tone-peach"><svg aria-hidden="true" class="icon" viewbox="0 0 48 48"><use href="#i-yoga"></use></svg></span><span><strong>Yoga</strong><span>Movement, breath and awareness</span></span><svg aria-hidden="true" class="icon detail-chevron" viewbox="0 0 48 48"><use href="#i-chevron"></use></svg></summary><div class="path-detail-body"><p>An invitation to experience movement, breath, rest and attention as parts of one practice.</p><p>Yoga here is more than a sequence of postures. It can include gentle movement, comfortable breathing, relaxation and self-observation, adapted to your experience and needs.</p><blockquote>Which kinds of movement or stillness help you feel more at home in yourself?</blockquote></div></details><details class="path-detail" id="path-food"><summary><span class="icon-wash tone-sage"><svg aria-hidden="true" class="icon" viewbox="0 0 48 48"><use href="#i-food"></use></svg></span><span><strong>Food &amp; Nutrition</strong><span>Nourish with awareness</span></span><svg aria-hidden="true" class="icon detail-chevron" viewbox="0 0 48 48"><use href="#i-chevron"></use></svg></summary><div class="path-detail-body"><p>Explore nourishment through food, enjoyment, everyday choices and your own lived experience.</p><p>Conversations may include food preferences, meal rhythms and practical ways to make nourishing choices. The starting point is your life, not a one-size-fits-all diet.</p><blockquote>What would a kinder, more sustainable relationship with food look like for you?</blockquote></div></details><details class="path-detail" id="path-emotions"><summary><span class="icon-wash tone-rose"><svg aria-hidden="true" class="icon" viewbox="0 0 48 48"><use href="#i-heart"></use></svg></span><span><strong>Emotional Wellbeing</strong><span>Make room for your inner world</span></span><svg aria-hidden="true" class="icon detail-chevron" viewbox="0 0 48 48"><use href="#i-chevron"></use></svg></summary><div class="path-detail-body"><p>Bring curiosity and kindness to emotions, everyday stress and the patterns you notice within.</p><p>Reflective practices may include journaling, self-observation and making space to name what you feel. This is not psychotherapy or a substitute for mental-health care.</p><blockquote>What needs a little more space, understanding or kindness right now?</blockquote></div></details><details class="path-detail" id="path-rhythm"><summary><span class="icon-wash tone-sun"><svg aria-hidden="true" class="icon" viewbox="0 0 48 48"><use href="#i-sun"></use></svg></span><span><strong>Daily Rhythm</strong><span>Live in rhythm with nature</span></span><svg aria-hidden="true" class="icon detail-chevron" viewbox="0 0 48 48"><use href="#i-chevron"></use></svg></summary><div class="path-detail-body"><p>Consider small, supportive rhythms around waking, meals, activity, rest and sleep.</p><p>The theme of dinacharya invites attention to daily life. Rather than a rigid timetable, this space explores routines that make room for your circumstances and changing needs.</p><blockquote>What is one small anchor that could make your day feel less hurried?</blockquote><section aria-labelledby="rhythm-heading" class="rhythm-section rhythm-on-connect"><div class="rhythm-intro"><p class="eyebrow">The rhythm of everyday life</p><h2 id="rhythm-heading">Small rituals.<br/>Room to simply be.</h2><p>A daily rhythm need not be a rigid routine. Begin with a moment of attention, and explore what feels right for your life.</p></div><div class="rhythm-card"><div aria-label="Moments in the day" class="rhythm-tabs" role="tablist"><button aria-controls="rhythm-panel" aria-selected="true" data-day="morning" id="day-morning" role="tab"><svg aria-hidden="true" class="icon" viewbox="0 0 48 48"><use href="#i-sun"></use></svg> Morning</button><button aria-controls="rhythm-panel" aria-selected="false" data-day="midday" id="day-midday" role="tab" tabindex="-1"><svg aria-hidden="true" class="icon" viewbox="0 0 48 48"><use href="#i-food"></use></svg> Midday</button><button aria-controls="rhythm-panel" aria-selected="false" data-day="evening" id="day-evening" role="tab" tabindex="-1"><svg aria-hidden="true" class="icon" viewbox="0 0 48 48"><use href="#i-moon"></use></svg> Evening</button></div><div aria-labelledby="day-morning" id="rhythm-panel" role="tabpanel" tabindex="0"><p class="eyebrow" id="rhythm-kicker">A gentle beginning</p><h3 id="rhythm-title">Arrive before you rush.</h3><p id="rhythm-text">Notice the light. Take a quiet moment to check in with yourself before the day's demands begin.</p><p class="rhythm-prompt" id="rhythm-prompt">What kind of beginning would feel nourishing today?</p></div><small>Invitations for reflection, not a prescribed routine.</small></div></section></div></details><details class="path-detail" id="path-inner"><summary><span class="icon-wash tone-rose"><svg aria-hidden="true" class="icon" viewbox="0 0 48 48"><use href="#i-lotus"></use></svg></span><span><strong>Inner Connection</strong><span>Explore, reflect and grow</span></span><svg aria-hidden="true" class="icon detail-chevron" viewbox="0 0 48 48"><use href="#i-chevron"></use></svg></summary><div class="path-detail-body"><p>An open space for contemplation, meaning and the deeper questions of being.</p><p>Inner inquiry does not require arriving at an answer. It can begin with quiet observation, a question, a reflection, or a moment of simply being present.</p><blockquote>Beyond your roles and responsibilities, what helps you reconnect with yourself?</blockquote><div aria-label="Ways to explore Inner Connection" class="inner-practices">
