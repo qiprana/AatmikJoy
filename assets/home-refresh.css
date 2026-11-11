@@ -145,3 +145,54 @@
 #page-home .home-v8-theme:hover {box-shadow:0 14px 32px rgba(37,68,47,.09);}
 #page-home .home-hero-cta {background:#416849;}
 #page-home .home-explore-link a {color:#34543D;border-bottom-color:#8BA58A;}
+
+
+/* Preview iteration: quieter brand scale and smoother two-tone narrative. */
+.site-header .header-inner {min-height:84px;gap:clamp(12px,1.7vw,24px);}
+.site-header .brand-exact {max-width:245px;flex-shrink:0;}
+.site-header .brand-exact>img {
+  display:block;
+  width:clamp(205px,18vw,245px);
+  max-width:100%;
+  height:auto;
+  filter:none;
+  object-fit:contain;
+}
+.site-header .primary-nav {gap:clamp(11px,1.35vw,21px);}
+.site-header .primary-nav a {font-size:clamp(16px,1.12vw,18px);}
+#page-home .home-v8-hero {position:relative;isolation:isolate;}
+#page-home .home-v8-hero::after {
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:-1px;
+  height:clamp(85px,12vw,165px);
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,252,246,0),#FFFCF6 96%);
+}
+#page-home .home-v8-hero .hero-layout {z-index:1;}
+#page-home .home-v8-intent {background:#FFFCF6;}
+#page-home .home-v9-philosophy {
+ background:linear-gradient(180deg,#FFFCF6 0%,#E2ECDD 78px,#E2ECDD 100%);
+}
+#page-home .home-v9-invitation {
+ background:linear-gradient(180deg,#E2ECDD 0%,#FFFCF6 78px,#FFFCF6 100%);
+}
+#page-home .home-v8-themes {
+ background:linear-gradient(180deg,#FFFCF6 0%,#E2ECDD 78px,#E2ECDD 100%);
+}
+@media(max-width:1180px) {
+ .site-header .brand-exact {max-width:220px;}
+ .site-header .brand-exact>img {width:220px;}
+ .site-header .primary-nav a {font-size:16px;}
+}
+@media(max-width:930px) {
+ .site-header .header-inner {min-height:78px;}
+ .site-header .brand-exact>img {width:210px;}
+}
+@media(max-width:650px) {
+ .site-header .header-inner {min-height:74px;}
+ .site-header .brand-exact {max-width:190px;}
+ .site-header .brand-exact>img {width:min(190px,51vw);}
+ #page-home .home-v8-hero::after {height:110px;}
+}
