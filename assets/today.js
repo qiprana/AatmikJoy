@@ -2,18 +2,35 @@
 (()=>{'use strict';
 const $=s=>document.querySelector(s), key='aatmikjoy-care-v1', journalKey='aatmikjoy-journal-v1';
 const dateKey=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
-const seeds=[
- {id:'breath',name:'Alternate-nostril breathing',kind:'minutes',target:5,when:'Morning'},
- {id:'eyes',name:'Gentle eye rest and exercises',kind:'minutes',target:3,when:'Midday'},
- {id:'biking',name:'Biking',kind:'minutes',target:15,when:'Anytime'},
- {id:'water',name:'Drink water',kind:'times',target:6,when:'Throughout the day'}
-];
+// Example invitations remain optional; the personal list starts empty.
+const seeds=[];
+const examples={
+ breaths:{name:'Five mindful breaths',kind:'minutes',target:2,when:'Anytime'},
+ feelings:{name:'Check in with your feelings',kind:'minutes',target:2,when:'Anytime'},
+ eyes:{name:'Rest your eyes',kind:'minutes',target:3,when:'Throughout the day'},
+ movement:{name:'Move with awareness',kind:'minutes',target:5,when:'Throughout the day'},
+ gratitude:{name:'A moment of gratitude',kind:'minutes',target:2,when:'Evening'},
+ inquiry:{name:'Listen inward',kind:'minutes',target:5,when:'Anytime'},
+ wake:{name:'Rise with the morning',kind:'times',target:1,when:'Morning'},
+ meals:{name:'Nourish at regular times',kind:'times',target:1,when:'Throughout the day'},
+ water:{name:'Stay comfortably hydrated',kind:'times',target:1,when:'Throughout the day'},
+ daylight:{name:'Connect with daylight',kind:'minutes',target:10,when:'Morning'},
+ sleep:{name:'Wind down for rest',kind:'times',target:1,when:'Evening'}
+};
 let state={habits:seeds,progress:{}};
 try{const raw=JSON.parse(localStorage.getItem(key)||'null');if(raw&&Array.isArray(raw.habits)&&raw.progress&&typeof raw.progress==='object')state=raw;}catch(_){}
 const save=()=>{try{localStorage.setItem(key,JSON.stringify(state));return true}catch(_){msg('Saving is unavailable in this browser. You can still export your plan.');return false}};
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const msg=s=>{$('#care-feedback').textContent=s};
 const today=()=>state.progress[dateKey()]||(state.progress[dateKey()]={});
+function refreshExamples(){
+ document.querySelectorAll('[data-care-example]').forEach(button=>{
+  const id=button.dataset.careExample, exists=state.habits.some(h=>h.id==='example-'+id);
+  button.disabled=exists;
+  button.textContent=exists?'Added to my plan ✓':'Add to my plan';
+  button.setAttribute('aria-label',exists?examples[id].name+' is in your plan':'Add '+examples[id].name+' to my plan');
+ });
+}
 function render(){
  const entries=today(), el=$('#care-list');if(!el)return;
  el.innerHTML=state.habits.length?state.habits.map(h=>{
@@ -22,6 +39,7 @@ function render(){
  }).join(''):'<li class="care-empty">Your plan is open. Add a small act of care when you are ready.</li>';
  const total=state.habits.length,completed=state.habits.filter(h=>Number(entries[h.id]||0)>=h.target).length;
  $('#care-progress').textContent=total?completed+' of '+total+' intentions tended today':'Make your self-care plan your own.';
+ refreshExamples();
 }
 function renderDaily(){
  const thoughts=[
@@ -40,6 +58,15 @@ function download(name,content,type='application/json'){const blob=new Blob([con
 function start(){
  if(!$('#page-today'))return;
  renderDaily();render();
+ $('#page-today').addEventListener('click',e=>{
+  const button=e.target.closest('button[data-care-example]');
+  if(!button)return;
+  const id=button.dataset.careExample,choice=examples[id];
+  if(!choice||state.habits.some(h=>h.id==='example-'+id))return;
+  state.habits.push({id:'example-'+id,...choice});
+  save();render();msg('Added “'+choice.name+'” to your plan. You can track it below.');
+ });
+
  const j=$('#today-journal');
  try{j.value=JSON.parse(localStorage.getItem(journalKey)||'{}')[dateKey()]||''}catch(_){}
  $('#care-form').addEventListener('submit',e=>{
