@@ -196,35 +196,3 @@
  .site-header .brand-exact>img {width:min(190px,51vw);}
  #page-home .home-v8-hero::after {height:110px;}
 }
-
-
-/* Original AatmikJoy header identity: elegant text, not a boxed image. */
-.site-header .brand-exact.aj-wordmark {
-  display:inline-flex;
-  align-items:center;
-  width:auto;
-  max-width:none;
-  min-width:0;
-  padding:4px 0;
-  text-decoration:none;
-  white-space:nowrap;
-  color:#31543a;
-  flex-shrink:0;
-}
-.site-header .aj-wordmark-text {
-  display:inline-flex;
-  align-items:baseline;
-  gap:0;
-  font:400 clamp(30px,2.55vw,41px)/1.13 Georgia,"Times New Roman",serif;
-  letter-spacing:-.045em;
-}
-.site-header .aj-wordmark-joy {color:#af593c;}
-.site-header .aj-wordmark:hover .aj-wordmark-text {opacity:.84;}
-.site-header .aj-wordmark:focus-visible {outline:2px solid #416849;outline-offset:5px;border-radius:3px;}
-@media(max-width:930px) {
-  .site-header .aj-wordmark-text {font-size:clamp(28px,4.6vw,37px);}
-}
-@media(max-width:650px) {
-  .site-header .brand-exact.aj-wordmark {max-width:none;}
-  .site-header .aj-wordmark-text {font-size:clamp(27px,6.7vw,34px);}
-}
