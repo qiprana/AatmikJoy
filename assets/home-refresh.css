@@ -259,3 +259,62 @@
     font-size:18px;
   }
 }
+
+
+/* Centered brand composition, following approved reference screenshot.
+   Same source SVG as the small header wordmark; scales independently here. */
+#page-home .home-v8-hero .hero-layout {
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ min-height:590px;
+}
+#page-home .home-v8-hero .hero-copy.aj-centered-hero {
+ box-sizing:border-box;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ width:100%;
+ max-width:780px;
+ margin:0 auto;
+ padding:64px 20px 115px;
+}
+#page-home .aj-hero-logo {
+ display:block;
+ width:clamp(230px,25vw,380px);
+ max-width:80vw;
+ height:auto;
+ margin:0 auto 4px;
+ object-fit:contain;
+}
+#page-home .home-v8-hero .aj-centered-hero .new-home-headline {
+ display:block;
+ font:italic 400 clamp(23px,2.2vw,34px)/1.34 Georgia,"Times New Roman",serif;
+ color:#54755a;
+ letter-spacing:-.01em;
+ white-space:normal;
+ max-width:700px;
+ margin:0 auto 24px;
+ text-wrap:balance;
+}
+#page-home .home-v8-hero .aj-centered-hero .hero-description {
+ font:italic 400 clamp(17px,1.5vw,23px)/1.5 Georgia,"Times New Roman",serif;
+ color:#627967;
+ max-width:680px;
+ margin:0 auto;
+}
+@media(max-width:930px){
+ #page-home .home-v8-hero .hero-layout {min-height:550px;}
+ #page-home .home-v8-hero .hero-copy.aj-centered-hero {padding:60px 18px 95px;}
+ #page-home .aj-hero-logo {width:clamp(220px,36vw,330px);}
+ #page-home .home-v8-hero .aj-centered-hero .new-home-headline {font-size:clamp(23px,3.25vw,30px);}
+}
+@media(max-width:650px){
+ #page-home .home-v8-hero .hero-layout {min-height:500px;}
+ #page-home .home-v8-hero .hero-copy.aj-centered-hero {padding:55px 16px 85px;}
+ #page-home .aj-hero-logo {width:min(280px,70vw);}
+ #page-home .home-v8-hero .aj-centered-hero .new-home-headline {font-size:clamp(21px,5vw,26px);margin-bottom:19px;}
+ #page-home .home-v8-hero .aj-centered-hero .hero-description {font-size:17px;}
+}
