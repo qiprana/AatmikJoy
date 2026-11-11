@@ -99,7 +99,7 @@
 
   // In-memory demo state only. Nothing is written to storage, cookies or a URL.
   const demo = {stage:'request',name:'Alex',approved:false,requested:false,memberOpen:false,intakePart:0,complete:false};
-  const pageTitles = {home:'Exploring the Joy of Being',paths:'Paths to Aatmik Joy',today:'Today, in your own rhythm',connect:'Connect',reflections:'My Reflections',products:'Products',vedini:'Vedini',bitbybit:'BitbyBit',swaadhaya:'Swaadhaya',join:'Join',member:'Member Preview'};
+  const pageTitles = {home:'Exploring the Joy of Being',paths:'Paths to Aatmik Joy',connect:'Connect',reflections:'My Reflections',products:'Products',vedini:'Vedini',bitbybit:'BitbyBit',swaadhaya:'Swaadhaya',join:'Join',member:'Member Preview'};
   let lastRoute = '';
   const focusHeading = container => {
    const heading = Array.from(container.querySelectorAll('h1,h2')).find(h => h.getClientRects().length);
@@ -310,62 +310,6 @@
    const n=$$('[data-practice]').filter(el=>el.checked).length;
    $('#practice-count').textContent=`${n} of 3 sample practices explored`;
   }));
-
-
-  // Today: lightweight, opt-in tools with no accounts, tracking or saved personal data.
-  const todayDate = $('#today-current-date');
-  if (todayDate) {
-   const now = new Date();
-   todayDate.textContent = new Intl.DateTimeFormat('en-US',{weekday:'long',month:'long',day:'numeric'}).format(now);
-   todayDate.dateTime = [now.getFullYear(),String(now.getMonth()+1).padStart(2,'0'),String(now.getDate()).padStart(2,'0')].join('-');
-  }
-  const careChoices = $('[data-today-care]');
-  const updateCare = () => {
-   const done=careChoices.filter(c=>c.checked).length;
-   $('#today-care-progress').textContent=done ? done+' small '+(done===1?'act':'acts')+' chosen for today. Take them at your own pace.' : 'Choose one small act to begin.';
-  };
-  careChoices.forEach(choice=>choice.addEventListener('change',updateCare));
-  let meditationRemaining=300, meditationInterval=null;
-  const meditationDisplay=()=>{
-   const mm=String(Math.floor(meditationRemaining/60)).padStart(2,'0');
-   const ss=String(meditationRemaining%60).padStart(2,'0');
-   $('#today-timer').textContent=mm+':'+ss;
-  };
-  const stopMeditation=()=>{if(meditationInterval!==null){clearInterval(meditationInterval);meditationInterval=null;}$('#today-timer-toggle').textContent='Start timer';};
-  $('#today-timer-toggle').addEventListener('click',()=>{
-   if(meditationInterval!==null){stopMeditation();$('#today-timer-status').textContent='Paused. Continue whenever you feel ready.';return;}
-   if(meditationRemaining===0)meditationRemaining=300;
-   const startedAt=Date.now(), startingSeconds=meditationRemaining;
-   $('#today-timer-toggle').textContent='Pause timer';
-   $('#today-timer-status').textContent='A quiet moment, just for you.';
-   meditationInterval=setInterval(()=>{
-    meditationRemaining=Math.max(0,startingSeconds-Math.floor((Date.now()-startedAt)/1000));
-    meditationDisplay();
-    if(meditationRemaining===0){stopMeditation();$('#today-timer-status').textContent='Your five minutes are complete. Notice how you feel.';}
-   },250);
-  });
-  $('#today-timer-reset').addEventListener('click',()=>{stopMeditation();meditationRemaining=300;meditationDisplay();$('#today-timer-status').textContent='Ready when you are.';});
-  let movementInterval=null;
-  const moveToggle=$('#today-move-reminder');
-  const moveStatus=$('#today-reminder-status');
-  moveToggle.addEventListener('change',async()=>{
-   if(movementInterval!==null){clearInterval(movementInterval);movementInterval=null;}
-   if(!moveToggle.checked){moveStatus.textContent='Reminders are off.';return;}
-   // Request permission only as a direct consequence of the user's opt-in.
-   if('Notification' in window && window.isSecureContext && Notification.permission==='default'){
-    try{await Notification.requestPermission();}catch(_){}
-   }
-   if(!moveToggle.checked)return;
-   const enabled=('Notification' in window && Notification.permission==='granted');
-   moveStatus.textContent=enabled?'Enabled. A gentle notification every hour while this page is open.':'Enabled. An in-page reminder appears while this tab is open.';
-   movementInterval=setInterval(()=>{
-    if(!moveToggle.checked)return;
-    if('Notification' in window && Notification.permission==='granted'){
-     try{new Notification('A small moment to move',{body:'Stand, stretch, or take a few steps — in your own rhythm.'});return;}catch(_){}
-    }
-    moveStatus.textContent='A gentle nudge: perhaps stand, stretch or take a few steps.';
-   },60*60*1000);
-  });
 
   // Clear browser-restored form controls on a fresh load. This application makes
   // zero network requests beyond local files, and uses no analytics or storage.
