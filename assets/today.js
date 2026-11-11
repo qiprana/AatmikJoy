@@ -49,10 +49,22 @@ function renderDaily(){
  ['Rest is part of living, not a reward for finishing.','Where might you allow yourself more ease?','I have permission to pause.'],
  ['You are unique; your practices can be, too.','What practice genuinely supports your nature?','I am allowed to find my own way.']
  ];
+ const wisdom=[
+  ['AYURVEDA · DINACHARYA','Ayurveda invites us to notice everyday rhythms around waking, food, movement and rest. Where would more steadiness feel helpful?'],
+  ['YOGA · ABHYASA','Abhyasa means returning to practice patiently. What two-minute pause could you make familiar, without forcing it?'],
+  ['YOGA · SVADHYAYA','Svadhyaya means self-study. Before changing a pattern, notice when it appears and what seems to bring it on.'],
+  ['YOGA · AHIMSA','Ahimsa reminds us to approach ourselves without harm. Can your self-care be gentle enough to return to tomorrow?'],
+  ['AYURVEDA · NOURISHMENT','Notice the experience of one meal: its pace, your appetite, and how you feel afterward. Awareness comes before rules.'],
+  ['NATURE · DAILY RHYTHM','Your needs may change with daylight, seasons and responsibilities. Which part of your routine needs adjustment today?'],
+  ['YOGA · INNER OBSERVATION','A practice is also a chance to learn. What supported your chosen pause today, and what made it difficult?']
+ ];
  const d=new Date(), day=Math.floor((new Date(d.getFullYear(),d.getMonth(),d.getDate())-new Date(d.getFullYear(),0,1))/86400000);
  const [thought,prompt,affirmation]=thoughts[day%thoughts.length];
  $('#today-thought').textContent=thought;$('#today-prompt').textContent=prompt;$('#today-affirmation').textContent=affirmation;
  $('#today-date').textContent=d.toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'});
+ const [wisdomLabel,wisdomCopy]=wisdom[day%wisdom.length];
+ $('#today-learning-label').textContent=wisdomLabel;
+ $('#today-learning-text').textContent=wisdomCopy;
 }
 function download(name,content,type='application/json'){const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 function start(){
