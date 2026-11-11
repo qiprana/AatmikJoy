@@ -1,0 +1,96 @@
+/* AatmikJoy homepage polish — applies only to preview branch. */
+:root{--aj-cream:#fffaf2;--aj-ivory:#fffdf8;--aj-green:#35583d;--aj-terracotta:#a5694b}
+.site-header{background:rgba(255,250,241,.98)!important;border-bottom:1px solid #e2d7c7;box-shadow:0 3px 18px rgba(74,60,40,.045)}
+.site-header .header-inner{min-height:112px;gap:clamp(16px,2vw,34px)}
+.site-header .brand-exact{max-width:350px}
+.site-header .brand-exact>img{width:clamp(235px,25vw,345px);height:auto;filter:contrast(1.14) saturate(1.15);image-rendering:auto}
+.site-header .primary-nav{gap:clamp(12px,1.45vw,24px)}
+.site-header .primary-nav a{font-size:clamp(17px,1.28vw,20px);line-height:1.4;font-weight:500;white-space:nowrap}
+.site-header .header-actions .icon-button{color:#aa593d}
+#page-home{background:var(--aj-cream)}
+#page-home .home-v8-hero{min-height:clamp(610px,70vh,830px);background:#f7e9d8;overflow:hidden}
+#page-home .home-v8-hero .hero-layout{display:flex;align-items:center;justify-content:center;min-height:clamp(610px,70vh,830px);position:relative;z-index:1}
+#page-home .home-v8-hero .hero-copy{width:100%;max-width:1280px;margin:auto;padding:72px 18px 106px;text-align:center}
+#page-home .home-v8-hero .home-hero-kicker{font:700 clamp(12px,1vw,15px)/1.5 Arial,sans-serif;letter-spacing:.24em;color:#936749;margin-bottom:28px}
+#page-home .home-v8-hero .new-home-headline{display:block;max-width:none;overflow:visible;font:400 clamp(55px,7.3vw,116px)/1.14 Georgia,serif;letter-spacing:-.038em;color:#31543a;margin:0 auto 29px;word-break:normal;overflow-wrap:normal;text-wrap:balance}
+#page-home .home-v8-hero .new-home-headline span{white-space:nowrap}
+#page-home .home-v8-hero .new-home-headline em{font-style:italic;font-weight:400;color:#58794a;white-space:nowrap}
+#page-home .home-v8-hero .hero-description{font:italic clamp(22px,2.1vw,31px)/1.42 Georgia,serif;color:#55715a;max-width:780px;margin:0 auto 28px}
+#page-home .home-v8-hero .hero-scene{background-position:50% 61%;background-size:cover;filter:saturate(1.10) contrast(1.04) brightness(1.035)}
+#page-home .home-v8-hero .hero-scene:after{background:linear-gradient(180deg,rgba(255,249,237,.78),rgba(255,247,232,.64) 46%,rgba(255,248,233,.38) 76%,rgba(255,248,233,.12))}
+#page-home .home-hero-cta{display:inline-flex;align-items:center;gap:11px;padding:13px 24px;border-radius:999px;background:#426a4a;color:#fff;text-decoration:none;font:600 15px/1.4 Arial,sans-serif;box-shadow:0 7px 18px rgba(51,77,50,.15);transition:transform .2s,background .2s}
+#page-home .home-hero-cta:hover{background:#31583a;transform:translateY(-2px)}
+#page-home .home-hero-cta:focus-visible{outline:3px solid #a76a4a;outline-offset:4px}
+/* Three continuous editorial chapters with a shared grid and rhythm. */
+#page-home .aj-home-chapter{padding:clamp(73px,7vw,112px) 0;border:0}
+#page-home .aj-home-chapter .eyebrow{font:700 12px/1.5 Arial,sans-serif;letter-spacing:.22em;color:#9b6747}
+#page-home .home-v8-intent{background:linear-gradient(115deg,#f9ecdf,#fff8ec 62%,#edf0df)}
+#page-home .home-v8-intent-layout{max-width:1200px;grid-template-columns:1fr 1.05fr;gap:clamp(35px,6vw,96px);align-items:center}
+#page-home .home-v8-intent-heading h2{font:400 clamp(42px,4.3vw,67px)/1.13 Georgia,serif;color:#31533a;letter-spacing:-.035em;margin:20px 0 25px}
+#page-home .home-v8-intent-heading h2 em{color:#a36e52}
+#page-home .home-v8-intent-heading>p:last-child{font:19px/1.75 Georgia,serif;color:#566c5a}
+#page-home .home-v8-statement{background:rgba(255,252,244,.94);border:1px solid #e5d4c1;border-radius:24px;padding:clamp(32px,4vw,57px);box-shadow:0 16px 42px rgba(90,70,52,.07)}
+#page-home .home-v8-purpose-quote{font:400 clamp(22px,2.12vw,32px)/1.56 Georgia,serif;color:#385640}
+#page-home .home-v9-philosophy,#page-home .home-v9-invitation{background:transparent;padding:clamp(70px,7vw,105px) 0}
+#page-home .home-v9-philosophy{background:linear-gradient(140deg,#eff5e9,#f8f9ee)}
+#page-home .home-v9-invitation{background:linear-gradient(140deg,#fff0e4,#fff9ed)}
+#page-home .home-v9-panel-wrap{max-width:1200px}
+#page-home .home-v9-panel{min-height:0;box-shadow:none;border:0;padding:0;background:transparent;border-radius:0}
+#page-home .home-v9-panel::after{display:none}
+#page-home .home-v9-panel .eyebrow{margin:0 0 21px}
+#page-home .home-v9-panel h2{font:400 clamp(44px,4.55vw,70px)/1.14 Georgia,serif;letter-spacing:-.035em;color:#31533a;max-width:1060px;margin:0 0 30px}
+#page-home .home-v9-panel h2 em{font-weight:400;color:#a36e52}
+#page-home .home-v9-panel p:not(.eyebrow){font:400 clamp(19px,1.55vw,24px)/1.68 Georgia,serif;color:#526b58;max-width:980px;margin:0 0 19px}
+#page-home .home-v9-panel p.home-chapter-note{border-left:3px solid #c5a069;padding-left:20px;color:#637459;font-style:italic;margin-top:30px;font-size:19px}
+#page-home .home-v9-panel p.home-v9-quiet-line{font-style:italic;color:#746f5b;margin-top:23px}
+#page-home .home-v8-themes{background:linear-gradient(150deg,#f7f2e7,#fff8ed 50%,#eef4e8);border:0;padding:clamp(83px,8vw,124px) 0}
+#page-home .home-v8-themes-heading{max-width:900px;margin:0 auto 43px;text-align:center}
+#page-home .home-v8-themes-heading h2{font:400 clamp(43px,4.5vw,72px)/1.14 Georgia,serif;margin:12px 0 19px}
+#page-home .home-v8-themes-heading>p:last-child{font:19px/1.7 Georgia,serif;color:#647665}
+#page-home .home-v8-themes-grid{gap:22px}
+#page-home .home-v8-theme{min-height:290px;padding:57px 32px 35px;border-radius:21px;background:#fffdf8;border:1px solid #e4d9c7;box-shadow:0 15px 33px rgba(81,64,43,.07);transition:transform .2s,box-shadow .2s}
+#page-home .home-v8-theme:nth-child(2){background:#f4f8ef}
+#page-home .home-v8-theme:nth-child(3){background:#fff2e9}
+#page-home .home-v8-theme:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(81,64,43,.11)}
+#page-home .home-v8-theme::before{content:'';position:absolute;top:28px;left:32px;height:3px;width:46px;border-radius:3px;background:#dba56f}
+#page-home .home-v8-theme:nth-child(2)::before{background:#80a381}
+#page-home .home-v8-theme:nth-child(3)::before{background:#d78f79}
+#page-home .home-v8-theme-number{position:static;display:block;letter-spacing:.14em;font:700 11px/1.5 Arial,sans-serif;color:#9a7459;margin:0 0 33px}
+#page-home .home-v8-theme h3{font:400 clamp(25px,2.1vw,33px)/1.22 Georgia,serif;margin:0 0 17px}
+#page-home .home-v8-theme p{font:18px/1.7 Georgia,serif}
+#page-home .home-explore-link{text-align:center;margin-top:35px}
+#page-home .home-explore-link a{display:inline-flex;gap:9px;align-items:center;color:#315b3b;text-decoration:none;font:700 16px/1.5 Arial,sans-serif;border-bottom:1px solid #8dab84;padding:7px 2px}
+#page-home .home-explore-link a:hover{color:#a26449}
+@media(max-width:1180px){
+ .site-header .brand-exact>img{width:clamp(205px,23vw,285px)}
+ .site-header .primary-nav{gap:10px}
+ .site-header .primary-nav a{font-size:16px}
+ #page-home .home-v8-hero .new-home-headline{font-size:clamp(53px,7vw,85px)}
+}
+@media(max-width:930px){
+ .site-header .brand-exact>img{width:230px}
+ #page-home .home-v8-hero .hero-layout{min-height:640px}
+ #page-home .home-v8-hero .hero-copy{padding:65px 18px 80px}
+ #page-home .home-v8-hero .new-home-headline{font-size:clamp(48px,8vw,72px)}
+ #page-home .home-v8-intent-layout{grid-template-columns:1fr;gap:35px}
+ #page-home .home-v8-theme{min-height:0}
+ #page-home .home-v8-themes-grid{grid-template-columns:1fr}
+}
+@media(max-width:650px){
+ .site-header .header-inner{min-height:85px}
+ .site-header .brand-exact>img{width:210px;max-width:55vw}
+ #page-home .home-v8-hero,#page-home .home-v8-hero .hero-layout{min-height:590px}
+ #page-home .home-v8-hero .hero-copy{padding:62px 9px 77px}
+ #page-home .home-v8-hero .home-hero-kicker{font-size:10px;letter-spacing:.16em}
+ #page-home .home-v8-hero .new-home-headline{font-size:clamp(44px,10.8vw,64px);line-height:1.15;letter-spacing:-.042em}
+ #page-home .home-v8-hero .new-home-headline span,#page-home .home-v8-hero .new-home-headline em{white-space:normal}
+ #page-home .home-v8-hero .hero-description{font-size:21px}
+ #page-home .home-v8-hero .hero-scene{background-size:auto 100%;background-position:60% bottom}
+ #page-home .aj-home-chapter{padding:66px 0}
+ #page-home .home-v8-intent-heading h2,#page-home .home-v9-panel h2{font-size:clamp(38px,9.3vw,53px)}
+ #page-home .home-v9-panel p:not(.eyebrow){font-size:18px}
+ #page-home .home-v8-statement{padding:31px 24px}
+ #page-home .home-v8-purpose-quote{font-size:22px}
+ #page-home .home-v8-theme{padding:52px 26px 31px}
+}
+@media(prefers-reduced-motion:reduce){#page-home .home-v8-theme,#page-home .home-hero-cta{transition:none}}
