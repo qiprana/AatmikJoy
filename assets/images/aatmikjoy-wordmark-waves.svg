@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 530 171" role="img" aria-labelledby="title">
+  <title id="title">AatmikJoy</title>
+  <g font-family="Georgia,'Times New Roman',serif" font-size="91" font-weight="400" letter-spacing="-2.5">
+    <text x="18" y="86" fill="#31583a"><tspan>Aatmik</tspan><tspan fill="#b04b37">Joy</tspan></text>
+  </g>
+  <g opacity="0.80" transform="translate(0,17)">
+    <path d="M77 117 C151 91,191 111,263 112 C334 113,379 96,449 99 C390 103,344 122,266 118 C196 115,154 99,77 117Z" fill="#658650"/>
+    <path d="M83 128 C167 109,209 130,273 131 C341 131,394 113,458 113 C399 135,345 140,270 137 C190 133,160 119,83 128Z" fill="#9dae60"/>
+  </g>
+</svg>
