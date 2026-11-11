@@ -198,22 +198,64 @@
 }
 
 
-/* Preview: restrained headline after removing the hero CTA. */
+/* Preview refinement: match the quiet, smaller scale of the approved hero concept.
+   This final block intentionally wins over older desktop / tablet / mobile font rules. */
+.site-header .header-inner { min-height:72px; }
+.site-header .brand-exact { max-width:175px; }
+.site-header .brand-exact>img {
+  display:block;
+  width:175px;
+  max-width:100%;
+  height:auto;
+  filter:none;
+  object-fit:contain;
+}
+#page-home .home-v8-hero,
+#page-home .home-v8-hero .hero-layout { min-height:570px; }
+#page-home .home-v8-hero .hero-copy {
+  max-width:1120px;
+  padding:65px 16px 80px;
+}
 #page-home .home-v8-hero .new-home-headline {
- font-size:clamp(49px,5.55vw,84px);
- line-height:1.16;
- max-width:1200px;
- margin-bottom:22px;
+  font-size:clamp(37px,3.2vw,54px);
+  line-height:1.18;
+  letter-spacing:-.026em;
+  max-width:1040px;
+  margin:0 auto 25px;
+  text-wrap:balance;
 }
-#page-home .home-v8-hero .hero-description {margin-bottom:0;}
-#page-home .home-v8-hero .hero-copy {padding-bottom:80px;}
-@media(max-width:1180px) {
- #page-home .home-v8-hero .new-home-headline {font-size:clamp(47px,5.75vw,72px);}
+#page-home .home-v8-hero .hero-description {
+  font-size:clamp(18px,1.55vw,24px);
+  line-height:1.5;
+  margin:0 auto;
 }
-@media(max-width:930px) {
- #page-home .home-v8-hero .new-home-headline {font-size:clamp(44px,7.5vw,63px);}
+@media(max-width:1180px){
+  .site-header .brand-exact { max-width:165px; }
+  .site-header .brand-exact>img { width:165px; }
+  #page-home .home-v8-hero .new-home-headline {
+    font-size:clamp(36px,3.65vw,49px);
+  }
 }
-@media(max-width:650px) {
- #page-home .home-v8-hero .new-home-headline {font-size:clamp(36px,9vw,49px);}
- #page-home .home-v8-hero .hero-copy {padding-bottom:68px;}
+@media(max-width:930px){
+  .site-header .brand-exact { max-width:158px; }
+  .site-header .brand-exact>img { width:158px; }
+  #page-home .home-v8-hero .new-home-headline {
+    font-size:clamp(36px,4.5vw,44px);
+  }
+}
+@media(max-width:650px){
+  .site-header .brand-exact { max-width:155px; }
+  .site-header .brand-exact>img { width:min(155px,44vw); }
+  #page-home .home-v8-hero,
+  #page-home .home-v8-hero .hero-layout { min-height:525px; }
+  #page-home .home-v8-hero .hero-copy {
+    padding:64px 12px 76px;
+  }
+  #page-home .home-v8-hero .new-home-headline {
+    font-size:clamp(31px,7.6vw,39px);
+    line-height:1.2;
+  }
+  #page-home .home-v8-hero .hero-description {
+    font-size:18px;
+  }
 }
