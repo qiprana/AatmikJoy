@@ -51,3 +51,44 @@
 .today-practices summary{cursor:pointer;font-weight:700}
 @media(max-width:960px){.care-builder{grid-template-columns:repeat(2,minmax(0,1fr))}.care-builder label:first-child{grid-column:1/-1}.today-grid,.today-practices{grid-template-columns:1fr}}
 @media(max-width:580px){.care-builder{grid-template-columns:1fr}.care-builder label:first-child{grid-column:auto}.today-section-header{align-items:start;flex-direction:column}.care-item{align-items:start;flex-direction:column}.today-subhero{padding:68px 0 50px}}
+
+/* Compact, preview-only Today layout: invitation -> personal intention. */
+#page-today .today-wrap{padding-top:34px;padding-bottom:64px}
+#page-today .today-subhero{background:linear-gradient(115deg,#f4eadf,#f7f3e9);border:1px solid #e8d8c6;border-radius:23px;padding:27px 31px 23px;margin-bottom:25px}
+#page-today .today-subhero .eyebrow{font-size:.7rem;margin:0 0 6px}
+#page-today .today-subhero h1{font-size:clamp(2rem,3.8vw,3.25rem);margin:0 0 8px;line-height:1.15;max-width:none}
+#page-today .today-subhero p:last-child{font-size:.98rem;line-height:1.55;margin:0;max-width:900px}
+#page-today .today-intro{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;max-width:none;margin:0 0 13px}
+#page-today .today-intro h2{font-size:1.5rem;margin:0}
+#page-today .today-intro p{font-size:.89rem;margin:0;line-height:1.45}
+#page-today .today-grid{gap:12px}
+#page-today .today-card{min-height:0;border-radius:17px;padding:17px 19px}
+#page-today .today-card h3{font-size:1.23rem;margin:6px 0 7px}
+#page-today .today-card p{font-size:1rem;line-height:1.45;margin:0}
+#page-today .today-small{font-size:.67rem;letter-spacing:.13em}
+#page-today .today-section{margin-top:27px}
+#page-today .today-section-title{font-size:clamp(1.65rem,3vw,2.25rem);margin:5px 0 6px}
+#page-today .today-section-description{color:#607161;font-size:.9rem;line-height:1.5;margin:0 0 14px}
+#page-today .today-examples{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#page-today .today-example{min-width:0;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fffaf2;border:1px solid #e5d8c8;border-radius:14px;padding:13px 15px}
+#page-today .today-example strong{display:block;font-size:.91rem;color:#3c5c43;font-weight:650;line-height:1.28}
+#page-today .today-example small{display:block;color:#69776a;font-size:.76rem;line-height:1.45;margin-top:3px}
+#page-today .today-example button{flex-shrink:0;background:#edf2e9;color:#365d3e;border:1px solid #bdcebc;border-radius:999px;padding:8px 12px;font-size:.75rem;font-weight:700;cursor:pointer}
+#page-today .today-example button:hover:not(:disabled){background:#dce9d9}
+#page-today .today-example button:disabled{opacity:.7;background:#f5f2eb;color:#607365;cursor:default}
+#page-today button:focus-visible,#page-today a:focus-visible{outline:3px solid #b67d59;outline-offset:3px}
+#page-today .today-section-header{margin-bottom:13px;align-items:center}
+#page-today .today-section-header p{font-size:.9rem;line-height:1.45;margin:4px 0}
+#page-today .care-panel{padding:19px 21px;border-radius:17px}
+#page-today .care-intro{font-size:.88rem;line-height:1.5;margin-bottom:12px}
+#page-today .care-list{margin-top:13px;gap:7px}
+#page-today .care-item{padding:12px 13px}
+#page-today .care-muted{font-size:.8rem;line-height:1.5}
+#page-today .care-note{min-height:94px}
+#page-today .today-practices{gap:11px}
+#page-today .today-practices article{padding:18px;border-radius:16px}
+#page-today .today-practices h3{font-size:1.22rem;margin:7px 0 5px}
+#page-today .today-practices p,#page-today .today-practices details{font-size:.84rem;line-height:1.5;margin:0 0 7px}
+#page-today .today-more-link{font-size:.86rem;font-weight:700;color:#416449;white-space:nowrap;text-underline-offset:4px}
+@media(max-width:850px){#page-today .today-examples{grid-template-columns:1fr}#page-today .today-practices{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){#page-today .today-grid{grid-template-columns:1fr}#page-today .today-practices{grid-template-columns:1fr}#page-today .today-example{align-items:flex-start}#page-today .today-subhero{padding:21px 18px}#page-today .today-section-header{align-items:start}#page-today .today-more-link{white-space:normal}}
