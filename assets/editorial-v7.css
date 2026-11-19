@@ -271,3 +271,8 @@
     padding:70px 6px 95px;
   }
 }
+
+/* Only AatmikJoy's original two-wave mark is used in page headings. */
+.subhero-copy .ornament.aj-brand-waves {display:flex;align-items:center;justify-content:center;margin:18px auto 25px;min-height:32px}
+.subhero-copy .ornament.aj-brand-waves img {display:block;width:clamp(130px,15vw,184px);height:auto;max-height:40px;object-fit:contain}
+.subhero-copy .ornament.aj-brand-waves::before,.subhero-copy .ornament.aj-brand-waves::after {content:none!important}
