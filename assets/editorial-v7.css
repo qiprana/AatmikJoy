@@ -549,3 +549,56 @@
 #page-join > .subhero .subhero-scene{
   display:none!important;
 }
+
+
+/* Home | pale-sage watercolor transition.
+   The previous olive overlay was too dark compared with Explore and Reflections.
+   This is the same existing AatmikJoy sage palette, not a new brand color. */
+#page-home .home-v8-hero{
+  background:var(--aj-flow-sage)!important;
+}
+#page-home .home-v8-hero::after{
+  height:clamp(210px,24vw,340px)!important;
+  background:linear-gradient(
+    to bottom,
+    rgba(222,234,220,0) 0%,
+    rgba(222,234,220,.17) 26%,
+    rgba(222,234,220,.62) 55%,
+    rgba(222,234,220,.91) 82%,
+    var(--aj-flow-sage) 100%
+  )!important;
+}
+#page-home .home-v8-hero .hero-scene::after{
+  background:linear-gradient(
+    to bottom,
+    rgba(255,252,246,.30) 0%,
+    rgba(255,252,246,.35) 50%,
+    rgba(255,252,246,.22) 75%,
+    rgba(222,234,220,.35) 100%
+  )!important;
+}
+#page-home .home-v8-intent.aj-home-chapter{
+  background:linear-gradient(
+    to bottom,
+    var(--aj-flow-sage) 0%,
+    #E4EFE0 36%,
+    #F2F6EE 72%,
+    var(--aj-flow-ivory) 100%
+  )!important;
+}
+#page-home .home-v8-intent-heading .eyebrow{
+  color:#4F7356!important;
+}
+#page-home .home-v8-intent-heading h2,
+#page-home .home-v8-intent-heading h2 em{
+  color:#34543D!important;
+}
+#page-home .home-v8-intent-heading .aj-purpose-definition{
+  color:#4D6753!important;
+}
+#page-home .home-v8-intent-heading .aj-purpose-definition strong{
+  color:#34543D!important;
+}
+#page-home .home-v8-intent .home-v8-statement{
+  box-shadow:0 12px 38px rgba(60,94,67,.075);
+}
