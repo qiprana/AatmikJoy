@@ -370,3 +370,150 @@
     padding:0 4px;
   }
 }
+
+
+/* Consistent AatmikJoy color and wave identity across all website pages.
+   Softer green matches the sage/ivory editorial palette while retaining readable white text. */
+:root{
+  --aj-flow-forest:#58775F;
+  --aj-flow-sage:#DEEADC;
+  --aj-flow-ivory:#FFFCF6;
+}
+#page-home .home-v8-hero::after{
+  background:linear-gradient(to bottom,
+    rgba(88,119,95,0) 0%,
+    rgba(88,119,95,.25) 34%,
+    rgba(88,119,95,.78) 74%,
+    var(--aj-flow-forest) 100%)!important;
+}
+#page-home .home-v8-hero .hero-scene::after{
+  background:linear-gradient(180deg,
+    rgba(255,252,246,.32),rgba(255,252,246,.38) 49%,
+    rgba(255,252,246,.12) 72%,rgba(88,119,95,.17))!important;
+}
+#page-home .home-v8-intent.aj-home-chapter {
+  background:linear-gradient(to bottom,
+    var(--aj-flow-forest) 0%,
+    var(--aj-flow-forest) 48%,
+    #9DB39F 74%,
+    var(--aj-flow-ivory) 100%)!important;
+}
+#page-home .home-v8-intent-heading .eyebrow,
+#page-home .home-v8-intent-heading .aj-purpose-definition{
+  color:#F4F9F0!important;
+}
+#page-home .home-v8-intent-heading .aj-purpose-definition strong{
+  color:white!important;
+}
+/* Keep the shared chapter headings, wave art and descriptions on a single centered axis. */
+#page-explore > .aj-unified-hero,
+#page-connect > .aj-unified-hero,
+#page-reflections > .aj-unified-hero,
+#page-products > .aj-unified-hero{
+  background:linear-gradient(to bottom,
+    var(--aj-flow-sage) 0%,
+    #E7EFE3 40%,
+    #F3F7EE 73%,
+    var(--aj-flow-ivory) 100%)!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+#page-explore > .aj-unified-hero .aj-intro-waves,
+#page-connect > .aj-unified-hero .aj-intro-waves,
+#page-reflections > .aj-unified-hero .aj-intro-waves,
+#page-products > .aj-unified-hero .aj-intro-waves{
+  display:flex!important;
+  width:100%!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:0!important;
+  margin:0 auto 13px!important;
+  text-align:center!important;
+}
+#page-explore > .aj-unified-hero .aj-intro-waves img,
+#page-connect > .aj-unified-hero .aj-intro-waves img,
+#page-reflections > .aj-unified-hero .aj-intro-waves img,
+#page-products > .aj-unified-hero .aj-intro-waves img{
+  display:block!important;
+  margin:0 auto!important;
+  width:clamp(125px,13vw,165px)!important;
+  height:auto!important;
+  max-height:34px!important;
+}
+#page-explore > .aj-unified-hero .aj-intro-description,
+#page-connect > .aj-unified-hero .aj-intro-description,
+#page-reflections > .aj-unified-hero .aj-intro-description,
+#page-products > .aj-unified-hero .aj-intro-description{
+  max-width:780px;
+  margin:14px auto 0!important;
+  color:#4F6955!important;
+  font:400 clamp(18px,1.65vw,22px)/1.72 Georgia,serif!important;
+}
+/* Reflections: no sage stripe between the ivory header and ivory library.
+   Full-bleed gradient is placed behind the .wrap rather than constrained to its width. */
+#page-reflections{
+  background:var(--aj-flow-ivory)!important;
+  overflow-x:clip;
+}
+#page-reflections .reflections-section{
+  position:relative;
+  isolation:isolate;
+  background:transparent!important;
+  padding-top:clamp(50px,5vw,78px);
+  padding-bottom:clamp(105px,10vw,150px);
+}
+#page-reflections .reflections-section::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0 auto 0 50%;
+  transform:translateX(-50%);
+  width:100vw;
+  background:linear-gradient(to bottom,
+    var(--aj-flow-ivory) 0%,
+    #F4F7EF 39%,
+    #E4EEE0 78%,
+    var(--aj-flow-sage) 100%)!important;
+}
+#page-products{
+  background:var(--aj-flow-ivory)!important;
+}
+#page-products .products-section{
+  background:transparent!important;
+}
+/* Product detail pages and Join use the same centered AatmikJoy waves, not left-floating marks. */
+#page-swaadhaya .subhero-copy .aj-brand-waves,
+#page-bitbybit .subhero-copy .aj-brand-waves,
+#page-vedini .subhero-copy .aj-brand-waves,
+#page-join .subhero-copy .aj-brand-waves{
+  display:flex!important;
+  width:100%;
+  align-items:center!important;
+  justify-content:center!important;
+  margin:17px auto 22px!important;
+  text-align:center!important;
+}
+#page-swaadhaya .subhero-copy .aj-brand-waves img,
+#page-bitbybit .subhero-copy .aj-brand-waves img,
+#page-vedini .subhero-copy .aj-brand-waves img,
+#page-join .subhero-copy .aj-brand-waves img{
+  display:block!important;
+  margin:0 auto!important;
+  width:clamp(120px,13vw,165px)!important;
+  height:auto!important;
+}
+#page-today .aj-today-waves{
+  display:flex;
+  align-items:center;
+  margin:8px 0 14px;
+}
+#page-today .aj-today-waves img{width:135px;height:auto}
+@media(max-width:650px){
+  #page-explore > .aj-unified-hero,
+  #page-connect > .aj-unified-hero,
+  #page-reflections > .aj-unified-hero,
+  #page-products > .aj-unified-hero{
+    padding-top:64px!important;
+    padding-bottom:92px!important;
+  }
+}
