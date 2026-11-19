@@ -47,19 +47,24 @@
 
   let selectedCategory = 'all';
   let reflectionDisplay = 'text';
+  const reflectionPageSize = 8;
+  let reflectionsVisible = reflectionPageSize;
   const reflectionSearch = $('#reflection-search');
   const renderReflections = () => {
    const query = reflectionSearch.value.trim().slice(0,120);
    const q = normalize(query);
    const matches = articles.filter(a => (selectedCategory === 'all' || a.category === selectedCategory) && normalize(`${a.title} ${a.label} ${a.prompt}`).includes(q));
+   const visibleMatches = matches.slice(0, reflectionsVisible);
    $('#reflection-grid').dataset.cardStyle = reflectionDisplay;
-   $('#reflection-grid').innerHTML = matches.map(a => `
-    <article class="reflection-card">
-     <a class="reflection-image-wrap" href="${escapeHTML(a.url)}" ${a.local ? '' : 'target="_blank" rel="noopener noreferrer"'} aria-label="Open ${escapeHTML(a.title)}"><img class="reflection-image" src="${asset(a.image)}" alt="${escapeHTML(a.alt)}" loading="lazy" width="640" height="292"></a>
-     <div class="reflection-body"><span class="article-tag ${a.category==='women'?'rose':''}">${highlight(a.label,query)}</span><h2><a href="${escapeHTML(a.url)}" ${a.local ? '' : 'target="_blank" rel="noopener noreferrer"'}>${highlight(a.title,query)}${a.local ? '' : '<span class="sr-only"> (opens in a new tab)</span>'}</a></h2><p>${highlight(a.prompt,query)}</p><span class="reflection-source">${escapeHTML(a.source)}</span><a class="text-link" href="${escapeHTML(a.url)}" ${a.local ? '' : 'target="_blank" rel="noopener noreferrer"'}>${a.local ? 'Read reflection' : 'Read original reflection'} ${icon(a.local ? 'arrow' : 'external')}${a.local ? '' : '<span class="sr-only"> (opens in a new tab)</span>'}</a></div>
-    </article>`).join('');
+   $('#reflection-grid').innerHTML = visibleMatches.map(a => `
+    <a class="reflection-card" href="${escapeHTML(a.url)}" ${a.local ? '' : 'target="_blank" rel="noopener noreferrer"'} aria-label="Read ${escapeHTML(a.title)}${a.local ? '' : ' (opens in a new tab)'}">
+     <span class="reflection-image-wrap"><img class="reflection-image" src="${asset(a.image)}" alt="${escapeHTML(a.alt)}" loading="lazy" width="640" height="292"></span>
+     <div class="reflection-body"><span class="article-tag ${a.category==='women'?'rose':''}">${highlight(a.label,query)}</span><h2>${highlight(a.title,query)}</h2><p>${highlight(a.prompt,query)}</p></div>
+    </a>`).join('');
    $('#no-reflections').hidden = matches.length !== 0;
-   $('#reflection-count').textContent = `${matches.length} ${matches.length===1?'reflection':'reflections'}${q?' matching your search':''}`;
+   const shown = visibleMatches.length;
+   $('#reflection-count').textContent = matches.length === 0 ? 'No reflections found' : shown < matches.length ? `Showing ${shown} of ${matches.length} reflections` : `${matches.length} ${matches.length===1?'reflection':'reflections'}${q?' matching your search':''}`;
+   $('#reflection-show-more').hidden = shown >= matches.length;
    $('#clear-reflection-search').hidden = query.length === 0;
    $$('.filter').forEach(button => {
     const active = button.dataset.filter === selectedCategory;
@@ -77,10 +82,14 @@
    $('#reflection-style-status').textContent = reflectionDisplay === 'text' ? 'Text-only reflection cards selected.' : 'Subtle imagery reflection cards selected.';
    renderReflections();
   }));
-  $$('.filter').forEach(button => button.addEventListener('click',() => {selectedCategory = button.dataset.filter;renderReflections();}));
-  reflectionSearch.addEventListener('input',renderReflections);
-  $('#clear-reflection-search').addEventListener('click',() => {reflectionSearch.value='';renderReflections();reflectionSearch.focus();});
-  $('#reset-reflections').addEventListener('click',() => {selectedCategory='all';reflectionSearch.value='';renderReflections();$('.filter').focus();});
+  $('.filter').forEach(button => button.addEventListener('click',() => {selectedCategory = button.dataset.filter;reflectionsVisible = reflectionPageSize;renderReflections();}));
+  reflectionSearch.addEventListener('input',() => {reflectionsVisible = reflectionPageSize;renderReflections();});
+  $('#clear-reflection-search').addEventListener('click',() => {reflectionSearch.value='';reflectionsVisible = reflectionPageSize;renderReflections();reflectionSearch.focus();});
+  $('#reset-reflections').addEventListener('click',() => {selectedCategory='all';reflectionSearch.value='';reflectionsVisible = reflectionPageSize;renderReflections();$('.filter').focus();});
+  $('#reflection-show-more').addEventListener('click',() => {
+   reflectionsVisible += reflectionPageSize;
+   renderReflections();
+  });
 
   $('#jump-to-request').addEventListener('click',e => { e.preventDefault(); document.getElementById('journey-content').scrollIntoView({behavior:'smooth',block:'start'}); });
   // Mobile menu: all page links remain available at small widths.
