@@ -517,3 +517,35 @@
     padding-bottom:92px!important;
   }
 }
+
+/* Products opening follows the exact editorial alignment of Explore. */
+#page-products > .aj-unified-hero > .wrap{
+  box-sizing:border-box;position:relative;width:calc(100% - 48px);
+  max-width:930px;margin:0 auto;padding:0 16px;text-align:center;
+}
+#page-products > .aj-unified-hero .eyebrow{
+  margin:0 auto 23px!important;color:#54785B!important;
+  font:700 12px/1.5 Arial,sans-serif!important;letter-spacing:.18em;
+}
+#page-products > .aj-unified-hero h1{
+  margin:0 auto 22px!important;max-width:850px;color:var(--aj-type)!important;
+  font:400 clamp(42px,4.4vw,66px)/1.16 Georgia,serif!important;
+  letter-spacing:-.025em!important;text-align:center!important;
+}
+@media(max-width:650px){
+  #page-products > .aj-unified-hero > .wrap{
+    width:calc(100% - 34px);padding:0 4px;
+  }
+}
+/* Make product detail headers follow the same gentle background rhythm. */
+#page-vedini > .subhero,#page-bitbybit > .subhero,
+#page-swaadhaya > .subhero,#page-join > .subhero{
+  border:0!important;background:linear-gradient(to bottom,
+  var(--aj-flow-sage) 0%,#EDF3E9 46%,var(--aj-flow-ivory) 100%)!important;
+}
+#page-vedini > .subhero .subhero-scene,
+#page-bitbybit > .subhero .subhero-scene,
+#page-swaadhaya > .subhero .subhero-scene,
+#page-join > .subhero .subhero-scene{
+  display:none!important;
+}
