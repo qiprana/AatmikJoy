@@ -996,3 +996,56 @@
     height:clamp(70px,19vw,105px)!important;
   }
 }
+
+
+/* AatmikJoy home: warm-white and light-green chapters, with a soft transition
+   into each neighboring section. Keep the existing brand palette and content. */
+:root {
+  --aj-home-paper:#FFFCF6;
+  --aj-home-leaf:#E3F0E1;
+}
+/* Restore the softer exposure of the approved watercolor reference without
+   obscuring the scene behind a large translucent wash. */
+#page-home .home-v8-hero .hero-scene {
+  filter:brightness(.92) saturate(.93) contrast(.98)!important;
+  opacity:1!important;
+}
+/* Hero seamlessly meets the pale-sage purpose chapter. */
+#page-home .home-v8-intent.aj-home-chapter {
+  background:linear-gradient(to bottom,
+    var(--aj-flow-sage) 0%,
+    var(--aj-home-leaf) 33%,
+    var(--aj-home-leaf) 64%,
+    var(--aj-home-paper) 100%)!important;
+}
+/* White → soft green → white → soft green → white. */
+#page-home .home-v9-philosophy.aj-home-chapter {
+  background:linear-gradient(to bottom,
+    var(--aj-home-paper) 0%,
+    var(--aj-home-paper) calc(100% - var(--aj-flow-length)),
+    var(--aj-home-leaf) 100%)!important;
+}
+#page-home .aj-home-everyday.aj-home-chapter {
+  background:linear-gradient(to bottom,
+    var(--aj-home-leaf) 0%,
+    var(--aj-home-leaf) calc(100% - var(--aj-flow-length)),
+    var(--aj-home-paper) 100%)!important;
+}
+#page-home .aj-wisdom-panels.aj-home-chapter {
+  background:linear-gradient(to bottom,
+    var(--aj-home-paper) 0%,
+    var(--aj-home-paper) calc(100% - var(--aj-flow-length)),
+    var(--aj-home-leaf) 100%)!important;
+}
+#page-home .aj-home-glimpses.aj-home-chapter {
+  background:linear-gradient(to bottom,
+    var(--aj-home-leaf) 0%,
+    var(--aj-home-leaf) calc(100% - var(--aj-flow-length)),
+    var(--aj-home-paper) 100%)!important;
+}
+#page-home .aj-home-begin.aj-home-chapter {
+  background:linear-gradient(to bottom,
+    var(--aj-home-paper) 0%,
+    var(--aj-home-paper) calc(100% - var(--aj-flow-length)),
+    var(--aj-flow-sage) 100%)!important;
+}
