@@ -82,7 +82,7 @@
    $('#reflection-style-status').textContent = reflectionDisplay === 'text' ? 'Text-only reflection cards selected.' : 'Subtle imagery reflection cards selected.';
    renderReflections();
   }));
-  $('.filter').forEach(button => button.addEventListener('click',() => {selectedCategory = button.dataset.filter;reflectionsVisible = reflectionPageSize;renderReflections();}));
+  $$('.filter').forEach(button => button.addEventListener('click',() => {selectedCategory = button.dataset.filter;reflectionsVisible = reflectionPageSize;renderReflections();}));
   reflectionSearch.addEventListener('input',() => {reflectionsVisible = reflectionPageSize;renderReflections();});
   $('#clear-reflection-search').addEventListener('click',() => {reflectionSearch.value='';reflectionsVisible = reflectionPageSize;renderReflections();reflectionSearch.focus();});
   $('#reset-reflections').addEventListener('click',() => {selectedCategory='all';reflectionSearch.value='';reflectionsVisible = reflectionPageSize;renderReflections();$('.filter').focus();});
