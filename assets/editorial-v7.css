@@ -1049,3 +1049,19 @@
     var(--aj-home-paper) calc(100% - var(--aj-flow-length)),
     var(--aj-flow-sage) 100%)!important;
 }
+
+
+/* Gentle alternating card surfaces in "Where would you like to begin?".
+   The paper cards and pale leafy cards belong to the same AatmikJoy palette. */
+#page-home .aj-dimension-grid .aj-dimension:nth-child(odd){
+  background:#FFFCF6!important;
+  border-color:#CCDCC9!important;
+}
+#page-home .aj-dimension-grid .aj-dimension:nth-child(even){
+  background:#EAF3E7!important;
+  border-color:#C5DCC3!important;
+}
+#page-home .aj-dimension-grid .aj-dimension:hover{
+  border-color:#93B298!important;
+  box-shadow:0 10px 24px rgba(53,83,60,.055);
+}
