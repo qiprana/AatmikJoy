@@ -36,6 +36,7 @@
   // These URLs and titles came from the material supplied for this website.
   // Short questions are editorial prompts, not claimed article quotations.
   const articles = [
+   {id:'what-is-aatmikjoy',category:'health',label:'Personal Reflections',title:'What is AatmikJoy?',prompt:'What does the joy within feel like? Three encounters that keep this question alive.',image:'reflection-equanimity.webp',alt:'Quiet landscape with flowers and balanced stones',source:'Read on AatmikJoy',url:'reflections/what-is-aatmikjoy/',local:true},
    {id:'health-healing',category:'health',label:'Health & Healing',title:'What is Health and Healing?',prompt:'What does it mean to explore health and healing as a whole-person journey?',image:'reflection-health.webp',alt:'A cup and flowers on a table in the morning light',source:'Read on AatmikJoy',url:'reflections/what-is-health-and-healing/',local:true},
    {id:'ayurveda-living',category:'ayurveda',label:'Ayurveda',title:'Ayurveda - A Pathway to Healthy Living',prompt:'How might Ayurvedic wisdom become part of the way we approach everyday life?',image:'reflection-ayurveda.webp',alt:'A mortar, herbs and a brass vessel on a sunlit table',source:'Original page on Notion',url:'https://app.notion.com/Ayurveda-a-pathway-to-healthy-living-3244aeae774f80b1815ec13dc37841de?pvs=21'},
    {id:'yoga-identity',category:'yoga',label:'Yoga & Inner Inquiry',title:'Yoga - What Are We Identified With?',prompt:'A question to sit with: what do we take ourselves to be?',image:'reflection-yoga.webp',alt:'A person sitting quietly with a view of sunrise hills',source:'Original page on Notion',url:'https://app.notion.com/Yoga-What-are-we-identified-with-3244aeae774f800bab36ff6075629405?pvs=21'},
@@ -46,19 +47,24 @@
 
   let selectedCategory = 'all';
   let reflectionDisplay = 'text';
+  const reflectionPageSize = 8;
+  let reflectionsVisible = reflectionPageSize;
   const reflectionSearch = $('#reflection-search');
   const renderReflections = () => {
    const query = reflectionSearch.value.trim().slice(0,120);
    const q = normalize(query);
    const matches = articles.filter(a => (selectedCategory === 'all' || a.category === selectedCategory) && normalize(`${a.title} ${a.label} ${a.prompt}`).includes(q));
+   const visibleMatches = matches.slice(0, reflectionsVisible);
    $('#reflection-grid').dataset.cardStyle = reflectionDisplay;
-   $('#reflection-grid').innerHTML = matches.map(a => `
-    <article class="reflection-card">
-     <a class="reflection-image-wrap" href="${escapeHTML(a.url)}" ${a.local ? '' : 'target="_blank" rel="noopener noreferrer"'} aria-label="Open ${escapeHTML(a.title)}"><img class="reflection-image" src="${asset(a.image)}" alt="${escapeHTML(a.alt)}" loading="lazy" width="640" height="292"></a>
-     <div class="reflection-body"><span class="article-tag ${a.category==='women'?'rose':''}">${highlight(a.label,query)}</span><h2><a href="${escapeHTML(a.url)}" ${a.local ? '' : 'target="_blank" rel="noopener noreferrer"'}>${highlight(a.title,query)}${a.local ? '' : '<span class="sr-only"> (opens in a new tab)</span>'}</a></h2><p>${highlight(a.prompt,query)}</p><span class="reflection-source">${escapeHTML(a.source)}</span><a class="text-link" href="${escapeHTML(a.url)}" ${a.local ? '' : 'target="_blank" rel="noopener noreferrer"'}>${a.local ? 'Read reflection' : 'Read original reflection'} ${icon(a.local ? 'arrow' : 'external')}${a.local ? '' : '<span class="sr-only"> (opens in a new tab)</span>'}</a></div>
-    </article>`).join('');
+   $('#reflection-grid').innerHTML = visibleMatches.map(a => `
+    <a class="reflection-card" href="${escapeHTML(a.url)}" ${a.local ? '' : 'target="_blank" rel="noopener noreferrer"'} aria-label="Read ${escapeHTML(a.title)}${a.local ? '' : ' (opens in a new tab)'}">
+     <span class="reflection-image-wrap"><img class="reflection-image" src="${asset(a.image)}" alt="${escapeHTML(a.alt)}" loading="lazy" width="640" height="292"></span>
+     <div class="reflection-body"><span class="article-tag ${a.category==='women'?'rose':''}">${highlight(a.label,query)}</span><h2>${highlight(a.title,query)}</h2><p>${highlight(a.prompt,query)}</p></div>
+    </a>`).join('');
    $('#no-reflections').hidden = matches.length !== 0;
-   $('#reflection-count').textContent = `${matches.length} ${matches.length===1?'reflection':'reflections'}${q?' matching your search':''}`;
+   const shown = visibleMatches.length;
+   $('#reflection-count').textContent = matches.length === 0 ? 'No reflections found' : shown < matches.length ? `Showing ${shown} of ${matches.length} reflections` : `${matches.length} ${matches.length===1?'reflection':'reflections'}${q?' matching your search':''}`;
+   $('#reflection-show-more').hidden = shown >= matches.length;
    $('#clear-reflection-search').hidden = query.length === 0;
    $$('.filter').forEach(button => {
     const active = button.dataset.filter === selectedCategory;
@@ -76,10 +82,14 @@
    $('#reflection-style-status').textContent = reflectionDisplay === 'text' ? 'Text-only reflection cards selected.' : 'Subtle imagery reflection cards selected.';
    renderReflections();
   }));
-  $$('.filter').forEach(button => button.addEventListener('click',() => {selectedCategory = button.dataset.filter;renderReflections();}));
-  reflectionSearch.addEventListener('input',renderReflections);
-  $('#clear-reflection-search').addEventListener('click',() => {reflectionSearch.value='';renderReflections();reflectionSearch.focus();});
-  $('#reset-reflections').addEventListener('click',() => {selectedCategory='all';reflectionSearch.value='';renderReflections();$('.filter').focus();});
+  $$('.filter').forEach(button => button.addEventListener('click',() => {selectedCategory = button.dataset.filter;reflectionsVisible = reflectionPageSize;renderReflections();}));
+  reflectionSearch.addEventListener('input',() => {reflectionsVisible = reflectionPageSize;renderReflections();});
+  $('#clear-reflection-search').addEventListener('click',() => {reflectionSearch.value='';reflectionsVisible = reflectionPageSize;renderReflections();reflectionSearch.focus();});
+  $('#reset-reflections').addEventListener('click',() => {selectedCategory='all';reflectionSearch.value='';reflectionsVisible = reflectionPageSize;renderReflections();$('.filter').focus();});
+  $('#reflection-show-more').addEventListener('click',() => {
+   reflectionsVisible += reflectionPageSize;
+   renderReflections();
+  });
 
   $('#jump-to-request').addEventListener('click',e => { e.preventDefault(); document.getElementById('journey-content').scrollIntoView({behavior:'smooth',block:'start'}); });
   // Mobile menu: all page links remain available at small widths.
@@ -99,7 +109,7 @@
 
   // In-memory demo state only. Nothing is written to storage, cookies or a URL.
   const demo = {stage:'request',name:'Alex',approved:false,requested:false,memberOpen:false,intakePart:0,complete:false};
-  const pageTitles = {home:'Exploring the Joy of Being',paths:'Paths to Aatmik Joy',connect:'Connect',reflections:'My Reflections',products:'Products',vedini:'Vedini',bitbybit:'BitbyBit',swaadhaya:'Swaadhaya',join:'Join',member:'Member Preview'};
+  const pageTitles = {home:'Exploring the Joy of Being',today:'Today · My Sanctuary',explore:'Explore Wisdom',glimpses:'What is AatmikJoy?',connect:'Connect',reflections:'My Reflections',products:'Products',vedini:'Vedini',bitbybit:'BitbyBit',swaadhaya:'Swaadhaya',join:'Join',member:'Member Preview'};
   let lastRoute = '';
   const focusHeading = container => {
    const heading = Array.from(container.querySelectorAll('h1,h2')).find(h => h.getClientRects().length);
@@ -115,16 +125,18 @@
    try { hash=decodeURIComponent(hash); } catch (_) { hash='home'; }
    const [rawPage='home',sub=''] = hash.split('/');
    // Backward-compatible old bookmarks now open Daily Rhythm under Connect.
-   const page = rawPage === 'home' && sub === 'rhythm' ? 'paths' : rawPage;
+   // Honor earlier bookmarks without reviving the retired Paths page.
+   const page = rawPage === 'glimpses' ? 'reflections' : ((rawPage === 'paths' || (rawPage === 'home' && sub === 'rhythm')) ? 'explore' : rawPage);
    return {page:Object.hasOwn(pageTitles,page)?page:'home',sub};
   };
   const renderRoute = (initial=false) => {
+   if (window.location.hash.replace(/^#\/?/,'').split('/')[0] === 'glimpses') { window.location.replace('reflections/what-is-aatmikjoy/'); return; }
    if($('#site-search-dialog').open) $('#site-search-dialog').close();
    const {page,sub} = parseRoute();
    const samePage = lastRoute === page;
    $$('.page').forEach(el => {el.hidden=el.dataset.page!==page;});
    $$('[data-nav]').forEach(link => {
-    if(link.dataset.nav===page || (['vedini','bitbybit','swaadhaya'].includes(page) && link.dataset.nav==='products')) link.setAttribute('aria-current','page');
+    if(link.dataset.nav===page || (['today','vedini','bitbybit','swaadhaya'].includes(page) && link.dataset.nav==='products') || (page==='reflections' && link.dataset.nav==='reflections')) link.setAttribute('aria-current','page');
     else link.removeAttribute('aria-current');
    });
    setMenu(false);
@@ -132,18 +144,15 @@
    document.title = `Aatmik Joy | ${pageTitles[page]}`;
    const view = $(`#page-${page}`);
    if(!initial) focusHeading(view);
-   if(page==='paths' && sub) {
-    const detail = document.getElementById(`path-${sub}`);
-    if(detail && detail.classList.contains('path-detail')) {
-     // Nested practice deep links must also open their parent Inner Connection.
-     const parent=detail.closest('details#path-inner');
-     if(parent && parent!==detail) parent.open=true;
-     detail.open=true;
-     requestAnimationFrame(() => {
-      detail.scrollIntoView({behavior:initial?'auto':motion(),block:'center'});
-      detail.querySelector('summary').focus({preventScroll:true});
-     });
-    } else if(!samePage || !initial) {window.scrollTo({top:0,behavior:'instant'});}
+   if(page==='explore' && sub) {
+    // Deep links reveal the related subject on Explore, instead of a retired Paths accordion.
+    const alias={rhythm:'ayurveda',food:'nutrition',emotions:'psychology',inner:'yoga',breath:'centering',presence:'centering',compassion:'counselling',eft:'psychology',reflection:'yoga'};
+    const topic=alias[sub]||sub;
+    const detail=document.getElementById('explore-'+topic);
+    if(detail && detail.matches('details.aj-explore-topic')) {
+      detail.open=true;
+      requestAnimationFrame(() => { detail.scrollIntoView({behavior:'instant',block:'start'}); });
+    } else { window.scrollTo({top:0,behavior:'instant'}); }
 
    } else if(!initial || !window.location.hash) {
     window.scrollTo({top:0,behavior:'instant'});
@@ -194,33 +203,34 @@
 
   // Native <dialog> search: actual searchable links, no decorative dummy input.
   const searchPages = [
-   {title:'What is Health and Healing?',label:'Reflection - full article on AatmikJoy',url:'reflections/what-is-health-and-healing/',keywords:'health healing balance function integrity self-regulation modalities body mind spirit holistic'},
-   {title:'Paths to Aatmik Joy',label:'Page - practices and perspectives',url:'#/paths',keywords:'paths ayurveda yoga breath rhythm compassion eft self study presence'},
-   {title:'Connect',label:'Page - how to connect with me',url:'#/connect',keywords:'contact email connect me sridevi conversation inquiry'},
-   {title:'Products',label:'Page - Vedini BitbyBit Swaadhaya',url:'#/products',keywords:'products vedini bitbybit swaadhaya coming soon'},
-   {title:'Vedini',label:'Product - coming soon',url:'#/vedini',keywords:'chanting learning vedini'},
-   {title:'BitbyBit',label:'Product - coming soon',url:'#/bitbybit',keywords:'bitbybit daily practice'},
-   {title:'Swaadhaya',label:'Product - coming soon',url:'#/swaadhaya',keywords:'swaadhaya self-study reflection'},
-   {title:'Being Present',label:'Pathway - present-moment awareness',url:'#/paths/presence',keywords:'present mindfulness awareness'},
-   {title:'Conscious Breathing',label:'Pathway - observe the breath',url:'#/paths/breath',keywords:'breath breathing breathwork'},
-   {title:'Compassionate Inquiry',label:'Pathway - compassion and understanding',url:'#/paths/compassion',keywords:'gabor mate compassionate inquiry'},
-   {title:'Emotional Freedom Technique',label:'Pathway - tapping and awareness',url:'#/paths/eft',keywords:'eft tapping emotional freedom'},
-   {title:'Self-Study & Reflection',label:'Pathway - Svadhyaya',url:'#/paths/reflection',keywords:'reflection svadhyaya self study'},
-   {title:'My Reflections',label:'Page - ideas to sit with and explore',url:'#/reflections',keywords:'blog articles reading reflections writing health healing'},
-   {title:'Ayurveda',label:'Pathway - wisdom for everyday living',url:'#/paths/ayurveda',keywords:'ayurveda constitution dosha prakriti digestion seasons herbs'},
-   {title:'Daily Rhythm',label:'Pathway - live in rhythm with nature',url:'#/paths/rhythm',keywords:'dinacharya dinachari dinachariya routine sleep morning midday evening habits lifestyle'},
-   {title:'Yoga',label:'Pathway - movement, breath and awareness',url:'#/paths/yoga',keywords:'yoga breathing movement posture rest awareness'},
-   {title:'Food & Nutrition',label:'Pathway - nourish with awareness',url:'#/paths/food',keywords:'diet nutrition food meals nourishment digestion'},
-   {title:'Emotional Wellbeing',label:'Pathway - make room for your inner world',url:'#/paths/emotions',keywords:'emotional work stress feelings emotions journaling self observation'},
-   {title:'Inner Connection',label:'Pathway - reflection and self-inquiry',url:'#/paths/inner',keywords:'inner spiritual spirit connection meaning awareness self inquiry being'},
-   {title:'Request to Join',label:'Prototype - request, review, profile and intake',url:'#/join',keywords:'join request membership approval profile intake invitation'},
-   {title:'Member Area',label:'Prototype - sample member space',url:'#/member',keywords:'member login sign in account practices dashboard'}
+   {title:'Home',label:'AatmikJoy · Exploring the Joy of Being',url:'#/home',keywords:'joy wholeness wellbeing'},
+   {title:'Explore',label:'Ayurveda, Yoga and the inner life',url:'#/explore',keywords:'ayurveda yoga therapy psychology wisdom'},
+   {title:'Ayurvedic Wisdom',label:'Life, individuality, seasons and balance',url:'#/explore/ayurveda',keywords:'daily rhythm dinacharya individuality'},
+   {title:'Ayurvedic Nutrition',label:'Food, digestion and nourishment',url:'#/explore/nutrition',keywords:'food digestion nourishment'},
+   {title:'Herbs & the Living World',label:'Plants and nature',url:'#/explore/herbs',keywords:'plants herbs living world'},
+   {title:'Yogic Wisdom',label:'Awareness, self-study, being',url:'#/explore/yoga',keywords:'yoga philosophy'},
+   {title:'Yoga Therapy',label:'Individualized movement and breath',url:'#/explore/yoga-therapy',keywords:'movement exercise'},
+   {title:'Centering Practices',label:'Mind, body and breath',url:'#/explore/centering',keywords:'meditation breath'},
+   {title:'Ayurvedic & Yogic Psychology',label:'Mind and emotional patterns',url:'#/explore/psychology',keywords:'emotions psychology'},
+   {title:'Ayurvedic & Yogic Counselling',label:'Listening and inquiry',url:'#/explore/counselling',keywords:'counselling dialogue'},
+   {title:'Energy Work',label:'Subtle awareness and experience',url:'#/explore/energy',keywords:'energy'},
+   {title:'Today',label:'Personal journal, emotion flush, practice timers',url:'#/today',keywords:'daily thought journal centering self-care'},
+   {title:'What is AatmikJoy?',label:'Reflection - My Grandmom, My Ayurveda Teachers and An acquaintance',url:'reflections/what-is-aatmikjoy/',keywords:'inner joy stories grandmom teachers'},
+   {title:'Reflections',label:'Articles and personal reflections',url:'#/reflections',keywords:'health healing writing reading'},
+   {title:'What is Health and Healing?',label:'Full article on AatmikJoy',url:'reflections/what-is-health-and-healing/',keywords:'health healing balance'},
+   {title:'Connect',label:'Voice behind AatmikJoy',url:'#/connect',keywords:'connection conversation software engineer'},
+   {title:'Products',label:'Today, Vedini, BitbyBit, Swaadhaya',url:'#/products',keywords:'today products'},
+   {title:'Vedini',label:'Study and chanting',url:'#/vedini',keywords:'chanting'},
+   {title:'BitbyBit',label:'Small daily steps',url:'#/bitbybit',keywords:'habits'},
+   {title:'Swaadhaya',label:'Self-study',url:'#/swaadhaya',keywords:'reflection'},
+   {title:'Request to Join',label:'Prototype - request, profile and intake',url:'#/join',keywords:'join request membership'},
+   {title:'Member Area',label:'Prototype - sample member space',url:'#/member',keywords:'member login'}
   ];
   const searchIndex = [...searchPages,...articles.map(a => ({title:a.title,label:`Reflection - ${a.label}`,url:a.url,keywords:a.prompt,external:!a.local}))];
   const dialog=$('#site-search-dialog');
   const updateSearch = () => {
    const query=$('#site-search-input').value.trim().slice(0,120), q=normalize(query);
-   const matches=q?searchIndex.filter(item=>normalize(`${item.title} ${item.label} ${item.keywords}`).includes(q)):searchPages.filter((_,i)=>[0,1,2,3,8,9].includes(i));
+   const matches=q?searchIndex.filter(item=>normalize(`${item.title} ${item.label} ${item.keywords}`).includes(q)):searchPages.filter((_,i)=>[0,1,3,11,12,13,15,16].includes(i));
    $('#site-search-results').innerHTML=matches.length?matches.map(item=>`<a class="search-result" href="${escapeHTML(item.url)}" ${item.external?'target="_blank" rel="noopener noreferrer"':''}><span><strong>${highlight(item.title,query)}</strong><small>${highlight(item.label,query)}${item.external?' - opens original in a new tab':''}</small></span>${icon(item.external?'external':'arrow')}</a>`).join(''):'<p class="search-none">No matches. Try a topic such as Ayurveda, Yoga, rhythm or healing.</p>';
    $('#site-search-status').textContent=`${matches.length} ${q?'results':'suggestions'}`;
   };
