@@ -1065,3 +1065,44 @@
   border-color:#93B298!important;
   box-shadow:0 10px 24px rgba(53,83,60,.055);
 }
+
+
+/* Final hero balance: gently luminous watercolor, with the chalky left edge
+   cropped away. The existing AatmikJoy artwork and bottom-only sage blend stay. */
+#page-home .home-v8-hero .hero-scene {
+  filter:brightness(.97) saturate(.96) contrast(.99)!important;
+  transform:scale(1.07);
+  transform-origin:58% center;
+  background-position:56% 61%!important;
+  opacity:1!important;
+}
+#page-home .home-v8-hero .hero-scene::after,
+#page-home .home-v8-hero::before {
+  display:none!important;
+  content:none!important;
+}
+#page-home .home-v8-hero::after {
+  height:clamp(72px,8vw,110px)!important;
+  background:linear-gradient(
+    to bottom,
+    rgba(222,234,220,0) 0%,
+    rgba(222,234,220,.06) 38%,
+    rgba(222,234,220,.24) 61%,
+    rgba(222,234,220,.72) 85%,
+    var(--aj-flow-sage) 100%
+  )!important;
+}
+#page-home .home-v8-hero .aj-centered-hero h1,
+#page-home .home-v8-hero .aj-centered-hero .hero-description {
+  text-shadow:0 1px 10px rgba(255,252,246,.48)!important;
+}
+@media(max-width:650px){
+  #page-home .home-v8-hero .hero-scene {
+    transform:scale(1.075);
+    transform-origin:60% center;
+    background-position:59% 61%!important;
+  }
+  #page-home .home-v8-hero::after {
+    height:clamp(70px,18vw,98px)!important;
+  }
+}
