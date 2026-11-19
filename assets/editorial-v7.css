@@ -276,3 +276,97 @@
 .subhero-copy .ornament.aj-brand-waves {display:flex;align-items:center;justify-content:center;margin:18px auto 25px;min-height:32px}
 .subhero-copy .ornament.aj-brand-waves img {display:block;width:clamp(130px,15vw,184px);height:auto;max-height:40px;object-fit:contain}
 .subhero-copy .ornament.aj-brand-waves::before,.subhero-copy .ornament.aj-brand-waves::after {content:none!important}
+
+/* Unified opening layout: use the same centered editorial rhythm as Explore.
+   The original AatmikJoy two-wave artwork stays centered below Reflections. */
+#page-explore > .aj-editorial-hero.aj-unified-hero,
+#page-connect > .aj-editorial-hero.aj-unified-hero,
+#page-reflections > .aj-editorial-hero.aj-unified-hero {
+  position:relative;
+  overflow:hidden;
+  border:0!important;
+  min-height:0;
+  padding:clamp(76px,8vw,112px) 0 clamp(95px,10vw,135px)!important;
+  background:linear-gradient(to bottom,
+    var(--aj-flow-sage) 0%,
+    var(--aj-flow-sage) 34%,
+    var(--aj-flow-ivory) 100%)!important;
+  text-align:center!important;
+}
+#page-explore > .aj-unified-hero > .wrap,
+#page-connect > .aj-unified-hero > .wrap,
+#page-reflections > .aj-unified-hero > .wrap {
+  box-sizing:border-box;
+  position:relative;
+  width:calc(100% - 48px);
+  max-width:930px;
+  margin:0 auto;
+  padding:0 16px;
+  text-align:center;
+}
+#page-explore > .aj-unified-hero .eyebrow,
+#page-connect > .aj-unified-hero .eyebrow,
+#page-reflections > .aj-unified-hero .eyebrow {
+  margin:0 auto 23px!important;
+  color:#54785B!important;
+  font:700 12px/1.5 Arial,sans-serif!important;
+  letter-spacing:.18em;
+}
+#page-explore > .aj-unified-hero h1,
+#page-connect > .aj-unified-hero h1,
+#page-reflections > .aj-unified-hero h1 {
+  margin:0 auto 22px!important;
+  max-width:850px;
+  color:var(--aj-type)!important;
+  font:400 clamp(42px,4.4vw,66px)/1.16 Georgia,serif!important;
+  letter-spacing:-.025em!important;
+  text-align:center!important;
+}
+#page-explore > .aj-unified-hero .aj-intro-description,
+#page-connect > .aj-unified-hero .aj-intro-description,
+#page-reflections > .aj-unified-hero .aj-intro-description {
+  display:block;
+  width:100%;
+  max-width:780px;
+  margin:18px auto 0!important;
+  color:var(--aj-text)!important;
+  font:400 clamp(18px,1.65vw,22px)/1.75 Georgia,serif!important;
+  text-align:center!important;
+}
+#page-explore > .aj-unified-hero .aj-intro-description + p {
+  max-width:815px;
+  margin:20px auto 0!important;
+}
+#page-reflections .aj-unified-hero .aj-intro-waves {
+  display:flex!important;
+  justify-content:center!important;
+  align-items:center!important;
+  width:100%;
+  margin:0 auto 12px!important;
+  padding:0!important;
+  text-align:center!important;
+}
+#page-reflections .aj-unified-hero .aj-intro-waves img {
+  display:block;
+  flex:none;
+  width:clamp(132px,14vw,176px);
+  height:auto;
+  margin:0 auto!important;
+  object-fit:contain;
+}
+#page-reflections > .aj-unified-hero .aj-intro-description {
+  margin-top:16px!important;
+}
+@media(max-width:650px) {
+  #page-explore > .aj-editorial-hero.aj-unified-hero,
+  #page-connect > .aj-editorial-hero.aj-unified-hero,
+  #page-reflections > .aj-editorial-hero.aj-unified-hero {
+    padding:68px 0 92px!important;
+  }
+  #page-explore > .aj-unified-hero > .wrap,
+  #page-connect > .aj-unified-hero > .wrap,
+  #page-reflections > .aj-unified-hero > .wrap {
+    width:calc(100% - 34px);
+    padding:0 4px;
+  }
+}
