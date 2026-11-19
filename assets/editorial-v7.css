@@ -613,20 +613,20 @@
     #F7FAF3 73%,var(--aj-flow-ivory) 100%)!important;
 }
 #page-reflections .aj-reflection-topics{
-  margin:clamp(37px,4.5vw,62px) auto 0;
+  margin:clamp(26px,3vw,38px) auto 0;
   width:100%;
-  max-width:980px;
+  max-width:850px;
 }
 #page-reflections .aj-topics-caption{
-  font:700 12px/1.5 Arial,sans-serif!important;
+  font:700 11px/1.5 Arial,sans-serif!important;
   letter-spacing:.19em;
   color:#577B5E!important;
-  margin:0 auto 20px!important;
+  margin:0 auto 13px!important;
   text-align:center!important;
 }
 #page-reflections .aj-reflection-topics .filter-list{
   display:flex!important;
-  gap:12px 14px!important;
+  gap:8px 9px!important;
   justify-content:center;
   align-items:center;
   flex-wrap:wrap;
@@ -638,14 +638,14 @@
   align-items:center;
   justify-content:center;
   width:auto;
-  min-height:52px;
-  padding:12px 24px!important;
+  min-height:41px;
+  padding:8px 16px!important;
   border-radius:999px;
-  border:1px solid #BDD3BC!important;
+  border:1px solid #C6D9C4!important;
   background:rgba(255,252,246,.82)!important;
   color:#385A41!important;
-  box-shadow:0 2px 8px rgba(53,83,60,.025);
-  font:500 clamp(15px,1.28vw,18px)/1.36 Arial,sans-serif!important;
+  box-shadow:none;
+  font:500 13.5px/1.4 Arial,sans-serif!important;
   text-align:center;
   white-space:normal;
   cursor:pointer;
@@ -661,7 +661,7 @@
   background:#365B43!important;
   color:#FFFCF6!important;
   border-color:#365B43!important;
-  box-shadow:0 5px 15px rgba(53,83,60,.12);
+  box-shadow:none;
 }
 #page-reflections .aj-reflection-topics .filter:focus-visible,
 #page-reflections .aj-reading-tools button:focus-visible{
@@ -822,15 +822,15 @@
 }
 @media(max-width:650px){
   #page-reflections .aj-reflection-topics{
-    margin-top:32px;
+    margin-top:24px;
   }
   #page-reflections .aj-reflection-topics .filter-list{
-    gap:9px!important;
+    gap:7px!important;
   }
   #page-reflections .aj-reflection-topics .filter{
-    min-height:44px;
-    padding:10px 15px!important;
-    font-size:14px!important;
+    min-height:43px;
+    padding:9px 13px!important;
+    font-size:13px!important;
   }
   #page-reflections .aj-reading-tools{
     gap:17px;
