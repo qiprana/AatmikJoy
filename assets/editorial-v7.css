@@ -1067,59 +1067,81 @@
 }
 
 
-/* AatmikJoy hero: softer light and more subdued color for visual review.
-   Preserve the existing watercolor and its gentle transition to pale sage. */
+/* Home hero image restored from the user's AatmikJoy_seamless_transitions_all_pages_v7.html.
+   Image and overlays only; page content, logo, text styling and all other sections unchanged. */
 #page-home .home-v8-hero .hero-scene {
-  filter:brightness(1.03) saturate(.92) contrast(.96)!important;
-  transform:scale(1.06);
-  transform-origin:58% center;
-  background-position:56% 61%!important;
+  z-index:0!important;
+  filter:saturate(.99) contrast(1.01)!important;
+  transform:none!important;
+  transform-origin:center center!important;
+  background-position:50% 61%!important;
+  background-size:cover!important;
   opacity:1!important;
 }
-/* A very fine warm veil softens highlights, not a chalky wash. */
 #page-home .home-v8-hero .hero-scene::before {
-  content:"";
+  display:none!important;
+  content:none!important;
+  background:none!important;
+}
+#page-home .home-v8-hero .hero-scene::after {
+  content:""!important;
   display:block!important;
   position:absolute;
   inset:0;
   pointer-events:none;
-  background:linear-gradient(
-    to bottom,
-    rgba(255,250,242,.10) 0%,
-    rgba(255,250,242,.06) 28%,
-    rgba(245,248,242,.04) 58%,
-    rgba(232,240,230,.06) 100%
-  );
+  background:linear-gradient(180deg,
+    rgba(255,252,246,.32) 0%,
+    rgba(255,252,246,.38) 49%,
+    rgba(255,252,246,.12) 72%,
+    rgba(54,91,67,.17) 100%)!important;
 }
-#page-home .home-v8-hero .hero-scene::after,
 #page-home .home-v8-hero::before {
-  display:none!important;
-  content:none!important;
+  content:""!important;
+  display:block!important;
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:radial-gradient(ellipse 49% 55% at 50% 45%,
+    rgba(255,252,246,.72) 0%,
+    rgba(255,252,246,.43) 45%,
+    rgba(255,252,246,0) 88%)!important;
 }
-/* Finish at full pale sage to prevent a visible hard edge at the join. */
 #page-home .home-v8-hero::after {
-  height:clamp(72px,8vw,110px)!important;
-  background:linear-gradient(
-    to bottom,
-    rgba(222,234,220,0) 0%,
-    rgba(222,234,220,.03) 48%,
-    rgba(222,234,220,.10) 68%,
-    rgba(222,234,220,.28) 86%,
-    rgba(222,234,220,.56) 94%,
-    var(--aj-flow-sage) 100%
-  )!important;
+  content:""!important;
+  display:block!important;
+  position:absolute;
+  left:0;
+  right:0;
+  top:auto;
+  bottom:-1px;
+  height:clamp(125px,16vw,205px)!important;
+  z-index:2;
+  pointer-events:none;
+  background:linear-gradient(180deg,
+    rgba(54,91,67,0) 0%,
+    rgba(54,91,67,.28) 34%,
+    rgba(54,91,67,.77) 74%,
+    #365B43 100%)!important;
 }
+/* Keep the current preview's lettering and spacing unchanged. */
 #page-home .home-v8-hero .aj-centered-hero h1,
 #page-home .home-v8-hero .aj-centered-hero .hero-description {
   text-shadow:0 1px 6px rgba(255,252,246,.22)!important;
 }
 @media(max-width:650px) {
   #page-home .home-v8-hero .hero-scene {
-    transform:scale(1.06);
-    transform-origin:60% center;
-    background-position:59% 61%!important;
+    transform:none!important;
+    background-size:auto 100%!important;
+    background-position:59% bottom!important;
+  }
+  #page-home .home-v8-hero::before {
+    background:radial-gradient(ellipse 90% 46% at 50% 43%,
+      rgba(255,252,246,.77),
+      rgba(255,252,246,.28) 75%,
+      transparent 100%)!important;
   }
   #page-home .home-v8-hero::after {
-    height:clamp(70px,18vw,98px)!important;
+    height:140px!important;
   }
 }
