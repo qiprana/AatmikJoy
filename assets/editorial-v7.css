@@ -1067,39 +1067,55 @@
 }
 
 
-/* Final hero balance: warm, clear, middle-exposure watercolor, with the chalky left edge
-   cropped away. The existing AatmikJoy artwork and bottom-only sage blend stay. */
+/* AatmikJoy hero: softer light and more subdued color for visual review.
+   Preserve the existing watercolor and its gentle transition to pale sage. */
 #page-home .home-v8-hero .hero-scene {
-  filter:brightness(1.05) saturate(.99) contrast(1.02)!important;
-  transform:scale(1.085);
+  filter:brightness(1.03) saturate(.92) contrast(.96)!important;
+  transform:scale(1.06);
   transform-origin:58% center;
   background-position:56% 61%!important;
   opacity:1!important;
+}
+/* A very fine warm veil softens highlights, not a chalky wash. */
+#page-home .home-v8-hero .hero-scene::before {
+  content:"";
+  display:block!important;
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(
+    to bottom,
+    rgba(255,250,242,.10) 0%,
+    rgba(255,250,242,.06) 28%,
+    rgba(245,248,242,.04) 58%,
+    rgba(232,240,230,.06) 100%
+  );
 }
 #page-home .home-v8-hero .hero-scene::after,
 #page-home .home-v8-hero::before {
   display:none!important;
   content:none!important;
 }
+/* Finish at full pale sage to prevent a visible hard edge at the join. */
 #page-home .home-v8-hero::after {
   height:clamp(72px,8vw,110px)!important;
   background:linear-gradient(
     to bottom,
     rgba(222,234,220,0) 0%,
-    rgba(222,234,220,.02) 46%,
-    rgba(222,234,220,.10) 67%,
-    rgba(222,234,220,.31) 84%,
-    rgba(222,234,220,.72) 95%,
+    rgba(222,234,220,.03) 48%,
+    rgba(222,234,220,.10) 68%,
+    rgba(222,234,220,.28) 86%,
+    rgba(222,234,220,.56) 94%,
     var(--aj-flow-sage) 100%
   )!important;
 }
 #page-home .home-v8-hero .aj-centered-hero h1,
 #page-home .home-v8-hero .aj-centered-hero .hero-description {
-  text-shadow:0 1px 8px rgba(255,252,246,.28)!important;
+  text-shadow:0 1px 6px rgba(255,252,246,.22)!important;
 }
-@media(max-width:650px){
+@media(max-width:650px) {
   #page-home .home-v8-hero .hero-scene {
-    transform:scale(1.075);
+    transform:scale(1.06);
     transform-origin:60% center;
     background-position:59% 61%!important;
   }
