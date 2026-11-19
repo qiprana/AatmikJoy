@@ -36,6 +36,7 @@
   // These URLs and titles came from the material supplied for this website.
   // Short questions are editorial prompts, not claimed article quotations.
   const articles = [
+   {id:'what-is-aatmikjoy',category:'health',label:'Personal Reflections',title:'What is AatmikJoy?',prompt:'What does the joy within feel like? Three encounters that keep this question alive.',image:'reflection-equanimity.webp',alt:'Quiet landscape with flowers and balanced stones',source:'Read on AatmikJoy',url:'reflections/what-is-aatmikjoy/',local:true},
    {id:'health-healing',category:'health',label:'Health & Healing',title:'What is Health and Healing?',prompt:'What does it mean to explore health and healing as a whole-person journey?',image:'reflection-health.webp',alt:'A cup and flowers on a table in the morning light',source:'Read on AatmikJoy',url:'reflections/what-is-health-and-healing/',local:true},
    {id:'ayurveda-living',category:'ayurveda',label:'Ayurveda',title:'Ayurveda - A Pathway to Healthy Living',prompt:'How might Ayurvedic wisdom become part of the way we approach everyday life?',image:'reflection-ayurveda.webp',alt:'A mortar, herbs and a brass vessel on a sunlit table',source:'Original page on Notion',url:'https://app.notion.com/Ayurveda-a-pathway-to-healthy-living-3244aeae774f80b1815ec13dc37841de?pvs=21'},
    {id:'yoga-identity',category:'yoga',label:'Yoga & Inner Inquiry',title:'Yoga - What Are We Identified With?',prompt:'A question to sit with: what do we take ourselves to be?',image:'reflection-yoga.webp',alt:'A person sitting quietly with a view of sunrise hills',source:'Original page on Notion',url:'https://app.notion.com/Yoga-What-are-we-identified-with-3244aeae774f800bab36ff6075629405?pvs=21'},
@@ -116,16 +117,17 @@
    const [rawPage='home',sub=''] = hash.split('/');
    // Backward-compatible old bookmarks now open Daily Rhythm under Connect.
    // Honor earlier bookmarks without reviving the retired Paths page.
-   const page = (rawPage === 'paths' || (rawPage === 'home' && sub === 'rhythm')) ? 'explore' : rawPage;
+   const page = rawPage === 'glimpses' ? 'reflections' : ((rawPage === 'paths' || (rawPage === 'home' && sub === 'rhythm')) ? 'explore' : rawPage);
    return {page:Object.hasOwn(pageTitles,page)?page:'home',sub};
   };
   const renderRoute = (initial=false) => {
+   if (window.location.hash.replace(/^#\/?/,'').split('/')[0] === 'glimpses') { window.location.replace('reflections/what-is-aatmikjoy/'); return; }
    if($('#site-search-dialog').open) $('#site-search-dialog').close();
    const {page,sub} = parseRoute();
    const samePage = lastRoute === page;
    $$('.page').forEach(el => {el.hidden=el.dataset.page!==page;});
    $$('[data-nav]').forEach(link => {
-    if(link.dataset.nav===page || (['today','vedini','bitbybit','swaadhaya'].includes(page) && link.dataset.nav==='products') || (page==='glimpses' && link.dataset.nav==='reflections')) link.setAttribute('aria-current','page');
+    if(link.dataset.nav===page || (['today','vedini','bitbybit','swaadhaya'].includes(page) && link.dataset.nav==='products') || (page==='reflections' && link.dataset.nav==='reflections')) link.setAttribute('aria-current','page');
     else link.removeAttribute('aria-current');
    });
    setMenu(false);
@@ -204,7 +206,7 @@
    {title:'Ayurvedic & Yogic Counselling',label:'Listening and inquiry',url:'#/explore/counselling',keywords:'counselling dialogue'},
    {title:'Energy Work',label:'Subtle awareness and experience',url:'#/explore/energy',keywords:'energy'},
    {title:'Today',label:'Personal journal, emotion flush, practice timers',url:'#/today',keywords:'daily thought journal centering self-care'},
-   {title:'What is AatmikJoy?',label:'My Grandmom and My Ayurveda Teachers',url:'#/glimpses',keywords:'joy stories grandmom teachers'},
+   {title:'What is AatmikJoy?',label:'Reflection - My Grandmom, My Ayurveda Teachers and An acquaintance',url:'reflections/what-is-aatmikjoy/',keywords:'inner joy stories grandmom teachers'},
    {title:'Reflections',label:'Articles and personal reflections',url:'#/reflections',keywords:'health healing writing reading'},
    {title:'What is Health and Healing?',label:'Full article on AatmikJoy',url:'reflections/what-is-health-and-healing/',keywords:'health healing balance'},
    {title:'Connect',label:'Voice behind AatmikJoy',url:'#/connect',keywords:'connection conversation software engineer'},
