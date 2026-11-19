@@ -1115,14 +1115,17 @@
   right:0;
   top:auto;
   bottom:-1px;
-  height:clamp(125px,16vw,205px)!important;
+  height:clamp(245px,28vw,355px)!important;
   z-index:2;
   pointer-events:none;
-  background:linear-gradient(180deg,
+  background:linear-gradient(to bottom,
     rgba(54,91,67,0) 0%,
-    rgba(54,91,67,.28) 34%,
-    rgba(54,91,67,.77) 74%,
-    #365B43 100%)!important;
+    rgba(54,91,67,.18) 22%,
+    rgba(54,91,67,.41) 42%,
+    rgba(54,91,67,.52) 57%,
+    rgba(111,149,116,.74) 72%,
+    rgba(179,203,178,.91) 88%,
+    var(--aj-flow-sage) 100%)!important;
 }
 /* Keep the current preview's lettering and spacing unchanged. */
 #page-home .home-v8-hero .aj-centered-hero h1,
@@ -1142,6 +1145,6 @@
       transparent 100%)!important;
   }
   #page-home .home-v8-hero::after {
-    height:140px!important;
+    height:clamp(190px,48vw,250px)!important;
   }
 }
