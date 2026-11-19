@@ -1067,10 +1067,10 @@
 }
 
 
-/* Final hero balance: gently luminous watercolor, with the chalky left edge
+/* Final hero balance: brighter, softer watercolor, with the chalky left edge
    cropped away. The existing AatmikJoy artwork and bottom-only sage blend stay. */
 #page-home .home-v8-hero .hero-scene {
-  filter:brightness(.97) saturate(.96) contrast(.99)!important;
+  filter:brightness(1.13) saturate(.97) contrast(.96)!important;
   transform:scale(1.07);
   transform-origin:58% center;
   background-position:56% 61%!important;
